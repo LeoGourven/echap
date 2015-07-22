@@ -2,6 +2,7 @@
 ___
 
 src/** -> Javascript and Styles
+
 build/index.html -> root html page
 
 
