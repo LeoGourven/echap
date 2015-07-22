@@ -1,6 +1,11 @@
 # Echap Website
 ___
 
+src/** -> Javascript and Styles
+build/index.html -> root html page
+
+
+
 ### Install :
 
 `npm install`
