@@ -32,6 +32,10 @@ const getconfig = function(exportPath) {
     },
     module: { 
       loaders: [
+        { test: /\.css$/, loader: "style-loader!css-loader" },
+        { test: /\.png$/, loader: "url-loader?limit=100000" },
+        { test: /\.jpg$/, loader: "url-loader" },
+        { test: /\.ttf$/, loader: "url-loader" },
         {
           test: /\.(js)$/,
           exclude: /node_modules/,
