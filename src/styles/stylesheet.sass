@@ -2,6 +2,7 @@
 @import "utils"
 
 $desktopWidth: 1174px
+
 $black: #2E0900
 $echapLiveColor: #FF8A0F
 $echapPlaygroundColor: #00CCFF
@@ -17,27 +18,50 @@ $colSize: 74px;
 @function getSizeForNColumns ($n)
   @return $colSize * $n + $gutter * $n
 
-// Grid display for debug
+// Grid display for debug (edited by dnsfng)
+
+  // use a fluid value to set the grid wrapper.
+  // this comes from 1200/1280 * 100 = 93.75%.
+  // vw means viewport width.
+
+$gridWidth: 93.75vw
+$laptopWidth: 1200px
+$tabletWidth: 960px
+
 .grid
-  display: none
-  width: $desktopWidth
+  display: true
+  width: $gridWidth
+  max-width: $laptopWidth // could be set as media queries also
+  min-width: $tabletWidth // could be set as media queries also
   height: 100%
   position: fixed
   top: 0
   left: 50%
-  margin-left: -1*($desktopWidth/2)
+  margin-left: -1*($gridWidth/2)
   z-index: 999
-
+  pointer-events: none
+  border-right: 1px solid #0f0
 
   & > div
     float: left
-    width: $colSize
+    position: relative
     height: 100%
-    background-color: rgba(255, 0, 0, 0.3)
-    margin-right: $gutter
+    width: percentage(100/12/100) // split the wrapper in 12 equals columns 
+    box-sizing: border-box // mandatory so the border doesn't add to the column width
+    border-left: 1px solid #0f0
 
-    &:last-child
-      margin-right: 0
+    &:after // we can use the after to display the unit part in red, and make the gutter transparents
+      $width: 75%
+
+      content: ""
+      position: absolute
+      left: 50%;
+      height: 100%
+      width: $width
+      margin-left: -($width/2)
+      background-color: rgba(255, 0, 0, 0.1)
+
+
 
 //////// end Grid ////////
 
