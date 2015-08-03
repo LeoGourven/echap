@@ -425,18 +425,59 @@ menu
       background-size: 100% 100%
       margin-bottom: 20px
 
+.places 
+  
+  h2
+    position: absolute
+    top: -70px
+    left: getSizeForNColumns(2)
 
 
+  & > div
+    position: relative
+    height: 825px
+    background: #FFF url('/assets/__map.png') no-repeat 50% 100px
+    margin: 0 auto
+    width: 974px // grid please
+    margin-bottom: 220px
 
 
+  ul
+    padding-top: 600px
+    margin-left: getSizeForNColumns(1)
 
-.places > div
-  height: 825px
-  background-color: rgba(255, 255, 255, 1)
-  margin: 0 auto
-  width: 974px // grid please
-  margin-bottom: 220px
 
+    li
+      display: inline-block
+      width: getSizeForNColumns(4)
+
+      p.name
+        font-weight: 600
+        font-size: 22px
+        line-height: 40px
+
+      &:first-child
+
+        p.name
+          color: $echapNightColor
+
+      &:last-child
+
+        p.name
+          color: $echapLiveColor
+
+
+      .address
+        margin-bottom: 20px
+
+      .links a:first-child
+        display: inline-block  
+        text-transform: uppercase
+        background-color: $black
+        margin-right: 10px
+        color: #FFF
+        padding: 20px
+        font-weight: 600
 
 .infos
   background-color: #FFF

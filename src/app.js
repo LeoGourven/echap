@@ -5,15 +5,10 @@ import dom from "domquery"
 
 const addArtistClickEvent = function(el){
 
-
   dom(el).on('click', function(){
-
     const id = dom(el).attr('data-id')
-
     console.log(id)
-
   })  
-
 } 
 
 
@@ -40,8 +35,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     artistsGalleryEl.innerHTML = html
 
     const lis = dom("#artists-gallery li")
-
-
     lis.map(addArtistClickEvent)
       
   })
