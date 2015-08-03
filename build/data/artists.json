@@ -1,0 +1,92 @@
+[
+  {
+    "id" : "forever-pavot",
+    "name" : "Forever pavot",
+    "pic" : "mono-Forever-pavot-60q-@2x.jpg",
+    "party" : "live"
+  },
+  {
+    "id" : "syracuse",
+    "name" : "Syracuse",
+    "pic" : "mono-Syracuse-60q-@2x.jpg",
+    "party" : "live"
+  },
+  {
+    "id" : "the-slow-sliders",
+    "name" : "The Slow Sliders",
+    "pic" : "mono-The-Slow-Sliders-60q-@2x.jpg",
+    "party" : "live"
+  },
+  {
+    "id" : "etre-assis-ou-danser",
+    "name" : "Être Assis Ou Danser",
+    "pic" : "mono-eaod-60q-@2x.jpg",
+    "party" : "live"
+  },
+  {
+    "id" : "gigsta",
+    "name" : "Gigsta",
+    "pic" : "mono-gigsta-90q-@2x.jpg",
+    "party" : "playground"
+  },
+  {
+    "id" : "tristan-mdwk",
+    "name" : "TRISTAN / MDWK",
+    "pic" : "mono-tristanmdwk-90q-@2x.jpg",
+    "party" : "playground"
+  },
+  {
+    "id" : "huuble",
+    "name" : "HUUBLE",
+    "pic" : "mono-Huuble-90q-@2x.jpg",
+    "party" : "playground"
+  },
+  {
+    "id" : "second-choice",
+    "name" : "Second Choice",
+    "pic" : "mono-second-choice-60q-@2x.jpg",
+    "party" : "playground"
+  },
+  {
+    "id" : "retard-show",
+    "name" : "Retard show",
+    "pic" : "mono-retard-90q-@2x.jpg",
+    "party" : "playground"
+  },
+  {
+    "id" : "legowelt",
+    "name" : "Legowelt",
+    "pic" : "mono-legowelt-60q-@2x.jpg",
+    "party" : "night"
+  },
+  {
+    "id" : "truss",
+    "name" : "Truss",
+    "pic" : "mono-Truss-60q-@2x.jpg",
+    "party" : "night"
+  },
+  {
+    "id" : "palms-trax",
+    "name" : "Palms Trax",
+    "pic" : "mono-PalmsTrax-60q-@2x.jpg",
+    "party" : "night"
+  },
+  {
+    "id" : "steve-murphy",
+    "name" : "Steve Murphy",
+    "pic" : "mono-SteveMurphy-60q-@2x.jpg",
+    "party" : "night"
+  },
+  {
+    "id" : "coni",
+    "name" : "Coni",
+    "pic" : "mono-Coni-60q-@2x.jpg",
+    "party" : "night"
+  },
+  {
+    "id" : "relief",
+    "name" : "Relief",
+    "pic" : "mono-relief-60q-@2x.jpg",
+    "party" : "night"
+  }
+]
