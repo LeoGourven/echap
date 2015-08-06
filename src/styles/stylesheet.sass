@@ -548,6 +548,57 @@ menu
 .association
   background-color: $echapNightColor
   height: 882px
+  color: #FFF
+  padding-top: 40px
+
+  .container
+    margin: 0 auto
+    width: 974px // grid please
+
+  .col
+    width: 50%
+    float: left
+
+    p
+      margin-bottom: 20px
+      line-height: 20px
+
+
+  .history
+    
+    ul
+      padding-left: getSizeForNColumns(1)
+      margin-bottom: 30px
+      color: #000
+      position: relative
+
+      &:before
+        content: "2013"
+        position: absolute
+        color: #FFF
+        top: 0
+        left: 28px
+        font-size: 22px
+        font-weight: 600
+
+      &:after
+        content: ""
+        position: absolute
+        width: 3px
+        height: 80px
+        background-color: $black
+        top: 20px
+        left: 50px
+
+
+      p.title
+        color: #FFF
+        font-weight: bold
+
+  h3
+    color: #FFF
+
+
 
 
 
