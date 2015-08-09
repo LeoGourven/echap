@@ -124,6 +124,10 @@ menu
   li
     float: left
     margin-right: 50px
+    cursor: pointer
+
+    a
+      border: none
 
     &:last-child
       float: right
@@ -500,7 +504,21 @@ menu
         width: 40px 
         height: 40px
         margin-right: 30px
-        background-color: rgba(0, 0, 0, 0.6)
+        
+        a
+          width: 40px
+          height: 40px
+          display: inline-block
+          border: none
+
+        &.fb
+          background: url('/assets/fb-black.svg') no-repeat 0 0
+
+        &.twitter
+          background: url('/assets/twitter-black.svg') no-repeat 0 0
+
+        &.insta
+          background: url('/assets/insta-black.svg') no-repeat 0 0
         
       &.contact
         div
@@ -519,7 +537,9 @@ menu
       width: 75px
       height: 75px
       margin-right: 10px
-      background-color: rgba(0, 0, 0, 0.6)
+      
+
+      
 
 
   ul.credits
@@ -549,19 +569,39 @@ menu
   background-color: $echapNightColor
   height: 882px
   color: #FFF
-  padding-top: 40px
+  padding-top: 100px
 
   .container
     margin: 0 auto
-    width: 974px // grid please
+    width: getSizeForNColumns(12)
+    
 
   .col
-    width: 50%
+    width: getSizeForNColumns(6)
     float: left
+
+    &:first-child
+      padding-left: getSizeForNColumns(1) + 10px
+      width: getSizeForNColumns(4) - 20px
+      padding-right: getSizeForNColumns(1)
+      position: relative
+
+      &:after
+        content: ""
+        background: url('/assets/yay-big.svg') no-repeat 0 -0
+        position: absolute
+        top: -30px
+        left: 20px
+        width: 52px
+        height: 75px
+
+      
+
+      
 
     p
       margin-bottom: 20px
-      line-height: 20px
+      line-height: 24px
 
 
   .history
@@ -571,13 +611,23 @@ menu
       margin-bottom: 30px
       color: #000
       position: relative
+      padding-right: 30px
+
+
+      &:nth-child(1):before
+        content: "2015"
+
+      &:nth-child(2):before
+        content: "2014"
+
+      &:nth-child(3):before
+        content: "2013"
 
       &:before
-        content: "2013"
         position: absolute
         color: #FFF
-        top: 0
-        left: 28px
+        top: 5px
+        left: 25px
         font-size: 22px
         font-weight: 600
 
@@ -585,15 +635,21 @@ menu
         content: ""
         position: absolute
         width: 3px
-        height: 80px
         background-color: $black
-        top: 20px
+        top: 30px
+        bottom: 45px
         left: 50px
+
+      li
+        padding-left: 20px
+        margin-bottom: 10px
 
 
       p.title
         color: #FFF
         font-weight: bold
+        margin-bottom: 0px
+
 
   h3
     color: #FFF

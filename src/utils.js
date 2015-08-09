@@ -10,3 +10,13 @@ export function findArtist(collection, predicate) {
 
   return selection
 }
+
+export function getOffsetRectTop(elem) {
+    const box = elem.getBoundingClientRect()
+    const body = document.body
+    const docElem = document.documentElement
+    const scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop
+    const clientTop = docElem.clientTop || body.clientTop || 0
+    const top  = box.top +  scrollTop - clientTop
+    return Math.round(top)
+}

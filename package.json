@@ -26,6 +26,7 @@
     "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
+    "animated-scrollto": "^1.1.0",
     "compass-mixins": "^0.12.7",
     "dom-select": "0.0.0",
     "domquery": "^1.2.0",

@@ -1,10 +1,35 @@
 import style from "./styles/stylesheet.sass"
 import request from "superagent"
 import dom from "domquery"
-import {findArtist} from "./utils"
+import scrollTo from "animated-scrollto"
+
+import {findArtist, getOffsetRectTop} from "./utils"
 
 
 let artists = []
+
+const attachMenuEvent = function(){
+
+  dom("menu li").on('click', function(){
+
+    const anchor = dom(this).attr('data-class')
+
+    if(anchor){
+
+      const yPos = getOffsetRectTop(dom(`.${anchor}`)[0])
+
+      scrollTo(
+        document.body, 
+        yPos, 
+        600, 
+        function() {} // calback
+      );
+
+    }
+
+  })
+
+}
 
 const toggleModal = function(el){
   dom(el).hasClass('hide') ? dom(el).removeClass('hide') : dom(el).addClass('hide')
@@ -66,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
   // Add event to close modale
   listenCloseModale(dom("#artist-modal"))
+
+  // Add menu events
+  attachMenuEvent()
 
 
   const artistsGalleryEl = document.getElementById("artists-gallery")
