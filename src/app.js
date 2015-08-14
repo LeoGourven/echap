@@ -126,7 +126,7 @@ const populateModal = function(id){
   
   modal.select('.description .head span:last-child').html(artist.music_type)
   modal.select('.description p').html(artist.description)
-  
+    
   toggleModal(modal)
   
 }
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       html += `
         <li class="${artist.party}" data-id="${artist.id}">
           <p class="pic" style="background-image: url(/assets/artists/mono-${artist.pic})"></p>
-          <p>${artist.name}</p>
+          <p class="artist-name">${artist.name}</p>
         </li>
       `
     })

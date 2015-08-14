@@ -1,8 +1,6 @@
 @import "reset"
 @import "utils"
 
-$desktopWidth: 1174px
-
 $black: #2E0900
 $echapLiveColor: #FF8A0F
 $echapPlaygroundColor: #00CCFF
@@ -12,11 +10,8 @@ $yellow: #FCC600
 
 //////// Grid /////////////
 
-$gutter: 26px
-$colSize: 74px
-
-@function getSizeForNColumns ($n)
-  @return $colSize * $n + $gutter * $n
+@function getSizeForNColumns($n)
+  @return $colSize * $n - $gutter
 
 // Grid display for debug (edited by dnsfng)
 
@@ -25,13 +20,16 @@ $colSize: 74px
   // vw means viewport width.
 
 $gridWidth: 93.75vw
-$laptopWidth: 1200px
-$tabletWidth: 960px
+$colSize: $gridWidth/12
+$gutter: $colSize*0.255555555
+
+$smallScreenMedia: 1060px
 
 .grid
+  display: none
   width: $gridWidth
   // max-width: $laptopWidth // could be set as media queries also
-  min-width: $tabletWidth // could be set as media queries also
+  // min-width: $tabletWidth // could be set as media queries also
   height: 100%
   position: fixed
   top: 0
@@ -46,7 +44,6 @@ $tabletWidth: 960px
     position: relative
     height: 100%
     width: percentage(100/12/100) // split the wrapper in 12 equals columns 
-    box-sizing: border-box // mandatory so the border doesn't add to the column width
     border-left: 1px solid #0f0
 
     &:after // we can use the after to display the unit part in red, and make the gutter transparents
@@ -94,6 +91,7 @@ h2
 h3
   color: $pink
   font-size: 22px
+  ine-height: 30px
   font-weight: 600
   text-transform: uppercase
   margin-bottom: 30px
@@ -123,8 +121,8 @@ menu
   z-index: 99
   top: 50px
   left: 50%
-  margin-left: -$gridWidth/2
-  width: $gridWidth
+  margin-left: getSizeForNColumns(12)/2*-1
+  width: getSizeForNColumns(12)
   font-weight: bold
   font-size: 20px
   text-transform: uppercase
@@ -133,6 +131,10 @@ menu
     float: left
     margin-right: 50px
     cursor: pointer
+
+    @media screen and (max-width: $smallScreenMedia)
+        margin-right: 30px
+      
 
     a
       border: none
@@ -148,6 +150,9 @@ menu
   .logo
     text-align: center
     padding: 270px 0 185px 0
+
+    img
+      width: getSizeForNColumns(6)
 
   .main-infos
     text-align: center
@@ -167,7 +172,6 @@ menu
       margin-right: 20px
       display: inline-block
       vertical-align: middle
-      background-repeat: none
       background-position: 0 0
       background-size: 26px 26px
 
@@ -190,7 +194,7 @@ menu
 
   // Programmation
   .per-day
-    width: $desktopWidth - getSizeForNColumns(2)
+    width: getSizeForNColumns(12)
     margin: 0 auto
 
     .day
@@ -211,6 +215,9 @@ menu
         text-align: center
         font-size: 20px
         letter-spacing: -0.3px // wut ?
+
+        @media screen and (max-width: $smallScreenMedia)
+          font-size: 16px
 
         em
           font-weight: 600
@@ -310,27 +317,31 @@ menu
 
 
 .edito
-  
+  width: $gridWidth
+  margin: 0 auto
   position: relative
   margin-bottom: 200px
 
-
   h2
     position: absolute
-    left: 350px
+    left: $colSize*3 + $gutter
     top: 60px
   
   img
-    top: 400px
+    top: 30vw
     position: absolute
+    width: getSizeForNColumns(5)
+
+    @media screen and (min-width: 1200px)
+      top: 200px
+      width: 500px
 
   .content
-    width: 800px
+    width: $colSize*8
     float: right
-    margin-right: 40px
-    height: 1040px
     background-color: rgba(255, 255, 255, 1)
     padding-top: 100px
+    padding-bottom: 100px 
 
     .title
       color: $echapLiveColor
@@ -338,7 +349,7 @@ menu
       font-size: 22px
       line-height: 40px
       text-align: center
-      width: 415px
+      width: getSizeForNColumns(5)
       margin-left: auto
       margin-right: auto
       margin-bottom: 20px
@@ -362,7 +373,7 @@ menu
 
 
     & > div
-      width: 560px
+      width: getSizeForNColumns(6)
       margin-left: auto
       margin-right: auto
       text-align: center
@@ -388,19 +399,20 @@ menu
 
 .artists 
 
+  padding-bottom: 250px
+
   ul
     margin: 0 auto
-    width: 974px // grid please
+    width: $colSize*10
 
   li
     float: left
-    margin-right: $gutter
+    padding: 0 $gutter/2
     margin-bottom: 90px
     position: relative
     cursor: pointer
-
-    &:nth-child(5n)
-      margin-right: 0
+    width: $colSize*2
+    height: 14vw
 
 
     &:nth-child(1), &:nth-child(8), &:nth-child(12)
@@ -452,10 +464,9 @@ menu
       border: 5px solid $echapPlaygroundColor
 
     .pic
-      width: 174px
-      height: 174px
-      border-radius: 174px
-      background: url('/assets/artist.png') no-repeat
+      width: $colSize*2 - $gutter
+      height: $colSize*2 - $gutter
+      border-radius: $colSize*2 - $gutter
       background-size: 100% 100%
       margin-bottom: 20px
 
@@ -464,15 +475,16 @@ menu
   h2
     position: absolute
     top: -70px
-    left: getSizeForNColumns(2)
+    left: getSizeForNColumns(1) + $gutter
 
 
   & > div
     position: relative
     height: 825px
     background: #FFF url('/assets/__map.png') no-repeat 50% 100px
+    background-size: $colSize*9
     margin: 0 auto
-    width: 974px // grid please
+    width: getSizeForNColumns(10)
     margin-bottom: 220px
 
 
@@ -483,7 +495,8 @@ menu
 
     li
       display: inline-block
-      width: getSizeForNColumns(4)
+      width: $colSize*4
+      padding-left: $gutter
 
       p.name
         font-weight: 600
@@ -521,12 +534,13 @@ menu
   .content
 
     margin: 0 auto
-    width: 974px // grid please
+    width: $colSize*10
 
     & > div
       float: left
-      width: 50%
+      width: $colSize*5
       margin-bottom: 60px
+      padding-left: $gutter/2
 
 
       ul.social li
@@ -551,27 +565,38 @@ menu
           background: url('/assets/insta-black.svg') no-repeat 0 0
         
       &.contact
-        div
-          background-color: rgba(0, 0, 0, 0.6)
-          height: 140px
+        
+        ul
+          li
+
+            margin-bottom: 20px
+
+            span:first-child
+              width: getSizeForNColumns(2)
+              margin-right: $gutter
+              vertical-align: top
+            span
+              width: getSizeForNColumns(3)
+              display: inline-block
+
 
       p
         margin-bottom: 30px
 
   ul.sponsors
-    width: 680px
+    width: getSizeForNColumns(8)
     margin: 0px auto 50px auto 
 
     li
       float: left
-      width: 75px
+      width: $colSize - $gutter
       height: 75px
-      margin-right: 10px
+      margin-right: $gutter
+      background-color: rgba(0, 0, 0, 0.1)
+
+      &:last-child
+        margin-right: 0
       
-
-      
-
-
   ul.credits
     width: 700px
     margin: 0px auto 50px auto 
@@ -597,7 +622,6 @@ menu
 
 .association
   background-color: $echapNightColor
-  height: 882px
   color: #FFF
   padding-top: 100px
 
@@ -611,8 +635,8 @@ menu
     float: left
 
     &:first-child
-      padding-left: getSizeForNColumns(1) + 10px
-      padding-right: getSizeForNColumns(1)
+      padding-left: getSizeForNColumns(1) + $gutter
+      padding-right: $colSize
       position: relative
 
       &:after
@@ -622,11 +646,7 @@ menu
         top: -30px
         left: 20px
         width: 52px
-        height: 75px
-
-      
-
-      
+        height: 75px    
 
     p
       margin-bottom: 20px
@@ -635,12 +655,13 @@ menu
 
   .history
     
+    padding-left: $gutter
+
     ul
       padding-left: getSizeForNColumns(1)
       margin-bottom: 30px
       color: #000
       position: relative
-      padding-right: 30px
 
 
       &:nth-child(1):before
@@ -656,7 +677,7 @@ menu
         position: absolute
         color: #FFF
         top: 5px
-        left: 25px
+        left: 0px
         font-size: 22px
         font-weight: 600
 
@@ -667,7 +688,7 @@ menu
         background-color: $black
         top: 30px
         bottom: 45px
-        left: 50px
+        left: 25px
 
       li
         padding-left: 20px
@@ -679,22 +700,20 @@ menu
         font-weight: bold
         margin-bottom: 0px
 
-
   h3
     color: #FFF
 
-
-
-
-
 .modal-artist
   position: fixed
-  top: 0
+  top: 100px
   left: 0
   right: 0
   bottom: 0
   z-index: 99
-  
+
+  @media screen and (max-height: 800px)
+    top: 0
+
 
   &.hide
     display: none
@@ -820,6 +839,7 @@ menu
   right: 0
   bottom: 0
   z-index: 99
+  overflow: auto
 
   &.coatkaer
     .infos-place > div
@@ -829,12 +849,15 @@ menu
     display: none
 
   .container
-    width: 1200px
+    width: getSizeForNColumns(12)
     margin: 50px auto 0 auto
     background-color: $black
     position: relative
     padding: 50px
     color: #FFF
+
+    @media screen and (max-height: 800px)
+      margin-top: 0
 
 
   a
