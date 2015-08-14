@@ -12,8 +12,8 @@ $yellow: #FCC600
 
 //////// Grid /////////////
 
-$gutter: 26px;
-$colSize: 74px;
+$gutter: 26px
+$colSize: 74px
 
 @function getSizeForNColumns ($n)
   @return $colSize * $n + $gutter * $n
@@ -29,9 +29,8 @@ $laptopWidth: 1200px
 $tabletWidth: 960px
 
 .grid
-  display: true
   width: $gridWidth
-  max-width: $laptopWidth // could be set as media queries also
+  // max-width: $laptopWidth // could be set as media queries also
   min-width: $tabletWidth // could be set as media queries also
   height: 100%
   position: fixed
@@ -55,7 +54,7 @@ $tabletWidth: 960px
 
       content: ""
       position: absolute
-      left: 50%;
+      left: 50%
       height: 100%
       width: $width
       margin-left: -($width/2)
@@ -102,6 +101,15 @@ h3
   &.yellow
     color: $yellow
 
+.gradient
+  background: rgba(255,84,155,1)
+  background: -moz-linear-gradient(30deg, rgba(255,84,155,1) 0%, rgba(255,204,0,1) 100%)
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,84,155,1)), color-stop(100%, rgba(255,204,0,1)))
+  background: -webkit-linear-gradient(30deg, rgba(255,84,155,1) 0%, rgba(255,204,0,1) 100%)
+  background: -o-linear-gradient(30deg, rgba(255,84,155,1) 0%, rgba(255,204,0,1) 100%)
+  background: -ms-linear-gradient(30deg, rgba(255,84,155,1) 0%, rgba(255,204,0,1) 100%)
+  background: linear-gradient(30deg, rgba(255,84,155,1) 0%, rgba(255,204,0,1) 100%)
+
 body
   background: #FFF
   color: #2E0900
@@ -115,8 +123,8 @@ menu
   z-index: 99
   top: 50px
   left: 50%
-  margin-left: -$desktopWidth/2
-  width: $desktopWidth
+  margin-left: -$gridWidth/2
+  width: $gridWidth
   font-weight: bold
   font-size: 20px
   text-transform: uppercase
@@ -158,8 +166,25 @@ menu
       height: 26px
       margin-right: 20px
       display: inline-block
-      background-color: rgba(0, 0, 0, 0.6)
       vertical-align: middle
+      background-repeat: none
+      background-position: 0 0
+      background-size: 26px 26px
+
+      a
+        border: none
+        width: 26px
+        height: 26px
+        display: inline-block
+
+      &.fb
+        background-image: url('/assets/fb-black.svg')
+
+      &.twitter
+        background-image: url('/assets/twitter-black.svg')
+
+      &.instagram
+        background-image: url('/assets/insta-black.svg')
 
 
 
@@ -256,7 +281,7 @@ menu
           width: 100%
           border: none
           
-        a.buy
+        .buy
           text-transform: uppercase
           background-color: $black
           color: #FFF
@@ -268,8 +293,13 @@ menu
             font-weight: 200
 
           &.free
+            display: inline-block
+            text-align: center
+            width: 100%
+            border: none
             background-color: #FFF
             color: $echapPlaygroundColor
+            cursor: default
 
         a.fb
           font-size: 16px
@@ -582,7 +612,6 @@ menu
 
     &:first-child
       padding-left: getSizeForNColumns(1) + 10px
-      width: getSizeForNColumns(4) - 20px
       padding-right: getSizeForNColumns(1)
       position: relative
 
@@ -665,7 +694,7 @@ menu
   right: 0
   bottom: 0
   z-index: 99
-  background-color: #FFF
+  
 
   &.hide
     display: none
@@ -732,8 +761,6 @@ menu
     width: 300px
     height: 300px
     vertical-align: top
-
-
   
   .soundcloud
     width: calc(100% - 100px)
@@ -746,6 +773,12 @@ menu
       width: 100px
       height: 100px
       cursor: pointer
+
+    a
+      display: block
+      width: 100px
+      height: 100px
+      border: none
 
     .close
       background: $echapNightColor url("/assets/close.svg") no-repeat 50% 50%
@@ -762,10 +795,15 @@ menu
     width: 400px
     padding-left: 40px
     padding-top: 30px
+    padding-bottom: 30px
 
     .head
       font-weight: 200
       margin-bottom: 30px
+
+      span:first-child
+        width: 200px
+        display: inline-block
 
       span:last-child
         float: right
@@ -773,6 +811,109 @@ menu
     p
       font-weight: 600
       line-height: 24px
+
+.modal-place
+  
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 99
+
+  &.coatkaer
+    .infos-place > div
+      float: right
+
+  &.hide
+    display: none
+
+  .container
+    width: 1200px
+    margin: 50px auto 0 auto
+    background-color: $black
+    position: relative
+    padding: 50px
+    color: #FFF
+
+
+  a
+    color: #FFF
+    border-bottom-color: #FFF
+
+  .close-modale
+    width: 100px
+    height: 100px
+    position: absolute
+    right: 0
+    top: 0
+    background: $echapNightColor url("/assets/close.svg") no-repeat 50% 50%
+    cursor: pointer
+
+
+  .pic
+    position: absolute
+    top: 0
+    right: 100px
+
+
+  .place-name
+    width: 300px
+    height: 300px
+    display: table-cell
+    text-align: center
+    vertical-align: middle
+    font-weight: bold
+    font-size: 42px
+    line-height: 50px
+    z-index: 9
+    position: relative
+
+
+  .infos-place
+    margin-top: -15px
+    font-size: 16px
+
+  .infos-place > div, .content > div
+    float: left
+    width: 50%
+
+  .address
+    text-align: right
+    padding-right: 100px // to fix
+
+
+  .content
+    width: getSizeForNColumns(10)
+    margin: 0 auto
+    margin-top: 55px
+    font-size: 18px
+    line-height: 28px
+    font-weight: 200
+
+    & > div
+      padding-left: $gutter/2
+
+    & > div:first-child
+      padding-right: $gutter
+
+    p
+      margin-bottom: 15px
+
+    em
+      padding: 3px 5px
+
+    em.night
+      background-color: $echapNightColor
+
+    em.playground
+      background-color: $echapPlaygroundColor
+
+    em.live
+      background-color: $echapLiveColor
+
+    
+
 
 
 

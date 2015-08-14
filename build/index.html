@@ -45,9 +45,15 @@
       <div class="main-infos">
         <span class="dates">25 & 26 septembre 2015</span>
         <span class="place">Pays de Quimperlé</span>
-        <span class="social"></span>
-        <span class="social"></span>
-        <span class="social"></span>
+        <span class="social fb">
+          <a href="https://www.facebook.com/profile.php?id=643712038986468&fref=ts" target="_blank">&nbsp;</a>
+        </span>
+        <span class="social twitter">
+          <a href="https://twitter.com/echapfestival" target="_blank">&nbsp;</a>
+        </span>
+        <span class="social instagram">
+          <a href="https://instagram.com/echapfestival/" target="_blank">&nbsp;</a>
+        </span>
       </div>
 
 
@@ -72,10 +78,10 @@
                 <li>ÊTRE ASSIS OU DANSER</li>
               </ul>
               <div class="party-buy">
-                <a class="buy" href="#">
+                <a class="buy" href="https://yurplan.com/event/ECHAP-FESTIVAL-3eme-edition-25-26-septembre-15/5134?from=website" target="_blank">
                   RÉSERVER <span>10 / 12 €</span>
                 </a>
-                <a class="fb" href="#">
+                <a class="fb" href="https://www.facebook.com/events/374595002727933/" target="_blank">
                   Voir l’événement sur Facebook
                 </a>
               </div>
@@ -96,10 +102,10 @@
                 <li>RETARD SHOW</li>
               </ul>
               <div class="party-buy">
-                <a class="buy free" href="#">
+                <span class="buy free">
                   Gratuit !
-                </a>
-                <a class="fb" href="#">
+                </span>
+                <a class="fb" href="https://www.facebook.com/events/374595002727933/" target="_blank">
                   Voir l’événement sur Facebook
                 </a>
               </div>
@@ -116,10 +122,10 @@
                 <li>RELIEF</li>
               </ul>
               <div class="party-buy">
-                <a class="buy" href="#">
+                <a class="buy" href="https://yurplan.com/event/ECHAP-FESTIVAL-3eme-edition-25-26-septembre-15/5134?from=website" target="_blank">
                   RÉSERVER <span>25 / 28 €</span>
                 </a>
-                <a class="fb" href="#">
+                <a class="fb" href="https://www.facebook.com/events/374595002727933/" target="_blank">
                   Voir l’événement sur Facebook
                 </a>
               </div>
@@ -171,15 +177,15 @@
               <p class="name">MANOIR DE KERNAULT</p>
               <p class="address">29300 Mellac</p>
               <div class="links">
-                <a href="#">S'y rendre</a>
-                <a href="#"> En savoir plus</a>
+                <a href="https://www.google.fr/maps/dir//Manoir+de+Kernault,+29300+Mellac/@47.8881789,-3.5975007,17z/data=!4m13!1m4!3m3!1s0x4810fac653e920fb:0xfb6b4b508d46c2c4!2sManoir+de+Kernault,+29300+Mellac!3b1!4m7!1m0!1m5!1m1!1s0x4810fac653e920fb:0xfb6b4b508d46c2c4!2m2!1d-3.5975007!2d47.8881789" target="_blank">S'y rendre</a>
+                <a class="button-place-modal" href="#" data-id="manoir"> En savoir plus</a>
             </li>
             <li>
               <p class="name">SALLE DU COAT-KAËR</p>
               <p class="address">Avenue Coat Kaër - 29300 Quimperlé</p>
               <div class="links">
-                <a href="#">S'y rendre</a>
-                <a href="#"> En savoir plus</a>
+                <a href="https://www.google.fr/maps/dir//52+Avenue+de+Coat+Kaer,+29300+Quimperl%C3%A9/@47.8744623,-3.553588,17z/data=!4m13!1m4!3m3!1s0x4810fa7a777833c5:0x71536e244b4cc3a7!2s52+Avenue+de+Coat+Kaer,+29300+Quimperl%C3%A9!3b1!4m7!1m0!1m5!1m1!1s0x4810fa7a777833c5:0x71536e244b4cc3a7!2m2!1d-3.553588!2d47.8744623" target="_blank">S'y rendre</a>
+                <a class="button-place-modal" href="#" data-id="coatkaer"> En savoir plus</a>
             </li>
           </ul>
         </div>
@@ -312,7 +318,7 @@
     </div>
 
 
-    <div id="artist-modal" class="modal-artist hide">
+    <div id="artist-modal" class="modal-artist modal-container hide">
       <div class="container clearfix">
         <div class="col">
           <div class="top clearfix">
@@ -329,7 +335,7 @@
             </div>
           </div>
           <div class="bottom youtube">
-            <iframe width="600" height="296" src="#" frameborder="0" allowfullscreen></iframe>
+            <iframe width="600" height="300" src="#" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div class="col">
@@ -337,10 +343,17 @@
             <div class="soundcloud">
               <iframe width="100%" height="300" scrolling="no" frameborder="no" src="#"></iframe>
             </div>
+            <div class="mixcloud">
+              <iframe width="500" height="180" src="#" frameborder="0"></iframe>
+            </div>
             <ul class="buttons">
-              <li class="close" id="close-modale"></li>
-              <li class="sc"></li>
-              <li class="fb"></li>
+              <li class="close close-modale"></li>
+              <li class="sc">
+                <a href="#" target="_blank"></a>
+              </li>
+              <li class="fb">
+                <a href="#" target="_blank"></a>
+              </li>
             </ul>
           </div>
           <div class="description">
@@ -349,6 +362,62 @@
               <span>Rock Psyché</span>
             </div>
             <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-place modal-container manoir hide">
+      <div class="container clearfix">
+        <p class="close-modale"></p>
+        <p class="place-name gradient">
+          Manoir <br/> de kernault
+        </p>
+        <p class="pic">
+          <img src="/assets/kernault.jpg"/>
+        </p>
+        <div class="infos-place">
+          <div class="address">
+            29300 Mellac
+          </div>
+          <div class="contact">
+            02 98 71 90 60 – <a href="http://www.cdp29.fr/fr/presentation-kernault" target="_blank">http://cdp29.fr/</a>
+          </div>
+        </div>
+        <div class="content">
+          <div>
+            <p>Cette année, ECHAP investit un lieu magique du sud Finistère : le manoir de Kernault. En effet, les festivités de la journée du samedi ainsi que la nuit se dérouleront autour du bâtiment classé Monument Historique. Décorations et mise en lumières sublimeront ce manoir du 15ème siècle aﬁn que les festivaliers passent une journée et une soirée inoubliables au rythme des artistes locaux et internationaux.</p>
+            <p><em class="playground">ECHAP Playground</em> prendra ses quartiers à proximité du parking, dans le grand parc de ce lieu de promenade, tandis qu’<em class="night">ECHAP Night</em> se déroulera dans l’enclos du site, face au plus long bâtiment du Manoir, qui se </p>
+          </div>
+          <div>
+            <p>Classé Monument Historique et Chemins du Patrimoine en Finistère, le Manoir de Kernault construit au 15ème siècle est un remarquable exemple de l’évolution d’un manoir rural. On y découvre des traces d’architecture gothique, un grenier à pans de bois du 17ème, des décors du 18ème dans la salle seigneuriale, une chapelle privée, un vivier... autant de singularités qui marquent les différentes époques de la vie de Kernault. Elles révèlent la puissance des propriétaires qui régnaient sur un vaste domaine agricole et racontent la vie quotidienne de nombreuses générations. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-place modal-container coatkaer hide">
+      <div class="container clearfix">
+        <p class="close-modale"></p>
+        <p class="place-name gradient">
+          La salle du coat kaër
+        </p>
+        <p class="pic">
+          <img src="/assets/coatkaer.jpg"/>
+        </p>
+        <div class="infos-place">
+          <div class="address">
+            Avenue Coat Kaër - 29300 Quimperlé
+          </div>
+          <div class="contact">
+          </div>
+        </div>
+        <div class="content">
+          <div>
+            <p>Le Coat Kaër est un lieu culturel incontournable à Quimperlé ; cette ancienne coopérative d’agriculteurs accueille grand nombre des spectacles et concerts conçus en partenariat avec la mairie. C’est donc tout naturellement qu’ECHAP a décidé d’investir le lieu en organisant le vendredi une soirée un peu différente de ce que l’association propose habituellement, en faisant la part belle aux instruments et aux sonorités pop.</p>
+          </div>
+          <div>
+            <p>En 1931, le Coat-Kaër est une coopérative d’agriculteurs quimperlois ayant pour but la mise en conserve des légumes. Mais en 1980, des problèmes financiers entraînent la désaffection de tout l’édifice. Un an plus tard, la municipalité décide de racheter le bâtiment pour en faire une salle polyvalente. Depuis, le Coat Kaër accueille la majorité des spectacles et concerts organisés par la Ville ou par les associations. La décoration intérieure de la salle a d’ailleurs été totalement refaite au cours de l’été 2004 favorisant l’accueil des spectacles. Sa capacité de 450 places assises et 750 debout, en fait un lieu culturel incontournable à Quimperlé.</p>
           </div>
         </div>
       </div>
