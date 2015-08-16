@@ -119,29 +119,42 @@ body
 menu
   position: fixed
   z-index: 99
-  top: 50px
+  top: 0
   left: 50%
+  height: 120px
   margin-left: getSizeForNColumns(12)/2*-1
   width: getSizeForNColumns(12)
   font-weight: bold
   font-size: 20px
   text-transform: uppercase
   
+  ul
+    margin: 35px 0 0
+    overflow : hidden
+
   li
     float: left
     margin-right: 50px
+    line-height: 50px
     cursor: pointer
 
     @media screen and (max-width: $smallScreenMedia)
         margin-right: 30px
-      
 
     a
       border: none
+      line-height: 50px
 
     &:last-child
       float: right
       margin-right: 0
+
+    &:hover
+      cursor: pointer
+      color: red // TODO : update text hover color
+      border-bottom: 2px solid red // TODO : update border color
+
+    
 
 .smoke-background
   background: url('/assets/__background-60q.jpg') repeat
