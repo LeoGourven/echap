@@ -562,7 +562,6 @@ menu
     padding-top: 30px
 
   .content
-
     margin: 0 auto
     width: $colSize*10
 
@@ -570,7 +569,10 @@ menu
       float: left
       width: $colSize*5
       margin-bottom: 60px
-      padding-left: $gutter/2
+      padding: 0 $colSize/2 0 $gutter/2
+
+      &:nth-child(2n+1), &.follow
+        clear:left
 
 
       ul.social li
@@ -595,6 +597,8 @@ menu
           background: url('/assets/insta-black.svg') no-repeat 0 0
         
       &.contact
+
+        clear:none;
         
         ul
           li
