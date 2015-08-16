@@ -129,9 +129,12 @@ menu
   font-size: 20px
   text-transform: uppercase
   
-  ul
+  .nav
     margin: 35px 0 0
-    overflow : hidden
+
+    .nav--anchors, .nav--helper
+      position: absolute
+      left: 0
 
   li
     float: left
@@ -146,14 +149,35 @@ menu
       border: none
       line-height: 50px
 
-    &:last-child
-      float: right
-      margin-right: 0
-
     &:hover
       cursor: pointer
       color: red // TODO : update text hover color
       border-bottom: 2px solid red // TODO : update border color
+
+    &.nav--helper:hover, &.nav--anchors
+      color: inherit
+      border-bottom: none
+
+    &.nav--tickets
+      float: right
+      margin-right: 0
+
+
+    &.nav--helper
+      display: none
+
+      &:before
+        content: "finger" // TODO : update icon
+        position: absolute
+        right: 100%
+        color: red
+
+  &.collapsed
+    .nav--helper
+      display: block
+
+    .nav--anchors
+      display: none
 
     
 
