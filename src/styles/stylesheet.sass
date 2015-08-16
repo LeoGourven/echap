@@ -8,6 +8,7 @@ $echapPlaygroundColor: #00CCFF
 $echapNightColor: #FF434A
 $pink: #E95A95
 $yellow: #FCC600
+$backgroundColor :#f4db96
 
 //////// Grid /////////////
 
@@ -78,7 +79,7 @@ h2
   font-size: 28px
   padding: 30px 28px
   text-align: center
-  border: 5px solid #000
+  border: 5px solid currentColor
 
 h3
   color: $pink
@@ -101,12 +102,12 @@ h3
   background: linear-gradient(30deg, rgba(255,84,155,1) 0%, rgba(255,204,0,1) 100%)
 
 body
-  background: #FFF
+  background: $backgroundColor
   color: #2E0900
   font-size: 16px
-  font-family: "Apercu"
+  font-family: "Apercu", Arial, sans-serif
   line-height: 18px
-  font-weight: 200
+  -webkit-font-smoothing: antialiased
 
 menu
   position: fixed
