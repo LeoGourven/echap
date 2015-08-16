@@ -23,7 +23,7 @@ $backgroundColor :#f4db96
 
 $gridWidth: 93.75vw
 $colSize: $gridWidth/12
-$gutter: $colSize*0.255555555
+$gutter: $colSize*0.255
 
 $smallScreenMedia: 1060px
 
@@ -615,17 +615,29 @@ menu
 
   ul.sponsors
     width: getSizeForNColumns(8)
-    margin: 0px auto 50px auto 
+    margin: 0px auto 50px auto
 
     li
       float: left
-      width: $colSize - $gutter
-      height: 75px
-      margin-right: $gutter
-      background-color: rgba(0, 0, 0, 0.1)
+      margin: 0 $gutter $gutter 0
 
-      &:last-child
+      &.sponsors--info
+        float: none;
+        display: block;
+        text-align: center;
+        line-height: 24px
+        margin-bottom: 2*$gutter
+
+      &:nth-child(8n+1)
         margin-right: 0
+
+      a
+        border-bottom: none;
+
+      img
+        width: $colSize - $gutter
+        height: $colSize - $gutter
+
       
   ul.credits
     width: 700px
