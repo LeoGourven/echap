@@ -141,6 +141,13 @@ const addArtistClickEvent = function(el){
   })
 } 
 
+const toggleGrid = function(){
+
+  dom(window).onKey('g', function(k){
+      dom(".grid").toggleClass('hidden')
+  })
+}
+
 document.addEventListener("DOMContentLoaded", function(event) { 
   
   // Add event to close modales
@@ -151,6 +158,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Add menu events
   attachMenuEvents()
+
+  // Add grid manager
+  toggleGrid()
 
 
   const artistsGalleryEl = document.getElementById("artists-gallery")
