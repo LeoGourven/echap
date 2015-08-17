@@ -31,6 +31,7 @@
     "dom-select": "0.0.0",
     "domquery": "^1.2.0",
     "raw-loader": "^0.5.1",
+    "scroll-bounds": "0.0.3",
     "superagent": "^1.2.0"
   }
 }

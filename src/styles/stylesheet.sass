@@ -120,6 +120,22 @@ menu
   font-weight: bold
   font-size: 20px
   text-transform: uppercase
+
+
+  &.collapsed
+
+    &:hover
+      .nav--helper
+        display: none
+
+      .nav--anchors
+        display: block      
+
+    .nav--helper
+      display: block
+
+    .nav--anchors
+      display: none
   
   .nav
     margin: 35px 0 0
@@ -164,12 +180,7 @@ menu
         right: 100%
         color: red
 
-  &.collapsed
-    .nav--helper
-      display: block
-
-    .nav--anchors
-      display: none
+  
 
     
 

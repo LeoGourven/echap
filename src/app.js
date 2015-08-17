@@ -2,9 +2,8 @@ import style from "./styles/stylesheet.sass"
 import request from "superagent"
 import dom from "domquery"
 import scrollTo from "animated-scrollto"
-
+import scrollBounds from "scroll-bounds"
 import {findArtist, getOffsetRectTop} from "./utils"
-
 
 let artists = []
 
@@ -149,7 +148,7 @@ const toggleGrid = function(){
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-  
+    
   // Add event to close modales
   listenCloseModale(dom(".modal-container"))
 
@@ -161,6 +160,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   // Add grid manager
   toggleGrid()
+
+  // 
+
+  const sb = scrollBounds(document.body)
+
+
+  sb.on('top', function(){
+    dom('menu').removeClass('collapsed')
+  })
+
+  sb.on('break', function (boundary) {
+    if(boundary==="top"){
+      dom('menu').addClass('collapsed')
+    }
+  });
+
 
 
   const artistsGalleryEl = document.getElementById("artists-gallery")
