@@ -201,6 +201,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     const lis = dom("#artists-gallery li")
     lis.map(addArtistClickEvent)
+
+    dom(".party-lineup li").map(addArtistClickEvent)
       
   })
   
