@@ -68,7 +68,10 @@ const populateModal = function(id){
 
   // populate
   modal.select('.artist-name').html(artist.name)
-  modal.select('.pic img').attr('src', `/assets/modale/${artist.pic}`)
+
+
+
+  modal.select('.pic').attr('style', `background-image: url(/assets/modale/${artist.pic})`)
   modal.select('.party').html(`Echap ${artist.party}`)
   modal.select('.party').addClass(artist.party)
   modal.select('.place p').html(artist.place)
