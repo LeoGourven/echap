@@ -600,7 +600,13 @@ menu
       height: $colSize*2 - $gutter
       border-radius: $colSize*2 - $gutter
       background-size: 100% 100%
+      transition: background-size 200ms ease-in;
+      background-position: 50% 50%
       margin-bottom: 20px
+
+      &:hover
+        background-size: 110% 110%
+
 
 .places 
   
