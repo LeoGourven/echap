@@ -393,19 +393,36 @@ menu
     position: absolute
     left: $colSize*3 + $gutter
     top: 60px
+    font-size: 32px
+    padding: 25px
   
-  img
-    top: 30vw
+  .pic
+    
     position: absolute
-    width: getSizeForNColumns(5)
+    z-index: 4
+    width: getSizeForNColumns(6)
+    max-width: 700px
+    height: 100%
+    left: -62px
+    background: url("/assets/__visual-@1x.png") no-repeat 0 85%
+    background-size: 100% auto
+
+
+    span
+      position: absolute
+      left: 60px
+      margin-left: $gutter/2
+      bottom: 0px
+      font-size: 16px
+    
 
     @media screen and (min-width: 1200px)
-      top: 200px
-      width: 500px
+      background-image: url("/assets/__visual-@2x.png")
+      
 
   .content
     width: $colSize*8
-    float: right
+    margin-left: $colSize*4
     background-color: rgba(255, 255, 255, 1)
     padding-top: 100px
     padding-bottom: 100px 
@@ -414,18 +431,18 @@ menu
       color: $echapLiveColor
       font-weight: 600
       font-size: 22px
-      line-height: 40px
+      line-height: 32px
       text-align: center
       width: getSizeForNColumns(5)
       margin-left: auto
       margin-right: auto
-      margin-bottom: 20px
+      margin-bottom: 30px
 
 
     .author
       text-align: center
       position: relative
-      margin-bottom: 90px
+      margin-bottom: 107px
 
       &:after
         content: " "
@@ -433,7 +450,7 @@ menu
         width: 10px
         height: 10px
         border-radius: 5px
-        top: 60px
+        top: 63px
         left: 50%
         margin-left: -5px
         background-color: $echapPlaygroundColor
@@ -446,10 +463,10 @@ menu
       text-align: center
       font-weight: 600
       font-size: 18px
-      line-height: 24px
+      line-height: 32px
 
       p
-        margin-bottom: 30px
+        margin-bottom: 25px
 
         &:last-child
           margin-top: 60px
