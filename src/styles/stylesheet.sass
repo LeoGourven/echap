@@ -1,5 +1,6 @@
 @import "reset"
 @import "fonts"
+@import "_fontello.scss"
 @import "utils"
 
 $black: #2E0900
@@ -73,25 +74,27 @@ a
 
 h2
   display: table
-  margin: 30px auto 0 auto
-  margin-bottom: 50px
-  font-weight: 600
+  margin: 90px auto 100px auto
+  font-weight: 600 
   text-transform: uppercase
-  font-size: 28px
-  padding: 30px 30px
+  font-size: 32px
+  padding: 23px 28px
   text-align: center
   border: 5px solid currentColor
 
 h3
   color: $pink
   font-size: 22px
-  ine-height: 30px
+  line-height: 30px
   font-weight: 600
   text-transform: uppercase
-  margin-bottom: 30px
+  margin-bottom: 20px
 
-  &.yellow
+  .follow &, .contact &
     color: $yellow
+
+h4, .infos strong
+  color: $pink
 
 .gradient
   background: rgba(255,84,155,1)
@@ -177,11 +180,12 @@ menu
       display: none
 
       &:before
-        content: "finger" // TODO : update icon
+        content: '\e800'
+        font-family: "fontello"
         position: absolute
         right: 100%
-        color: red
-
+        margin: 2px 6px 0 0
+        font-size: 40px
   
 
     
@@ -208,48 +212,92 @@ menu
       background: url('/assets/__logo-@2x.png') no-repeat 50% 50%
       background-size: 100% auto
 
+  .social li
+    float: left
+    width: 80px 
+    height: 80px
+    padding: 0
+    margin: 0
+    
+    a
+      display: block
+      width: 100%
+      height: 100%
+      border: none
+      position: relative
+
+      &:before
+        position: absolute
+        display: inline-block
+        width: 100%
+        height: 100%
+        left: 0
+        margin: 0
+        padding: 0
+        text-align: center
+        font-size: 64px
+        line-height: 80px // better way to align it in vertical ?
+
+      &:hover:before
+        webkit-transform: 50% 50%
+        transform-origin: 50% 50%
+        -webkit-transform: scale(1.1, 1.1)
+        transform: scale(1.1, 1.1)
+
 
   .main-infos
     text-align: center
     font-size: 28px
     
-
     .dates
       font-weight: bold
       margin-right: 30px
 
     .place
-      margin-right: 20px
+      margin-right: 10px
 
     .social
-      width: 26px
-      height: 26px
-      margin-right: 20px
       display: inline-block
       vertical-align: middle
-      background-position: 0 0
-      background-size: 26px 26px
 
-      &:last-child
-        margin-right: 0
+      li
+        width: 52px 
+        height: 52px
 
-      a
-        border: none
-        width: 26px
-        height: 26px
-        display: inline-block
+        a:before
+          font-size: 40px
+          line-height: 52px
 
-      &.fb
-        background-image: url('/assets/fb-black.svg')
+    // .social
+    //   width: 26px
+    //   height: 26px
+    //   margin-right: 20px
+    //   display: inline-block
+    //   vertical-align: middle
+    //   background-position: 0 0
+    //   background-size: 26px 26px
 
-      &.twitter
-        background-image: url('/assets/twitter-black.svg')
+    //   &:last-child
+    //     margin-right: 0
 
-      &.instagram
-        background-image: url('/assets/insta-black.svg')
-        width: 24px
-        height: 24px
-        background-size: 100% 100%
+    //   a
+    //     border: none
+    //     width: 26px
+    //     height: 26px
+    //     display: inline-block
+    //     background-color: red
+
+    //   &.fb
+    //     background-image: url('/assets/fb-black.svg')
+
+    //   &.twitter
+    //     background-image: url('/assets/twitter-black.svg')
+
+    //   &.instagram
+    //     background-image: url('/assets/insta-black.svg')
+    //     width: 24px
+    //     height: 24px
+    //     background-size: 100% 100%
 
 
 
@@ -611,9 +659,7 @@ menu
 
 .infos
   background-color: #FFF
-
-  h2
-    padding-top: 30px
+  line-height: 24px
 
   .content
     margin: 0 auto
@@ -628,35 +674,15 @@ menu
       &:nth-child(2n+1), &.follow
         clear:left
 
-
-      ul.social li
-        float: left
-        width: 40px 
-        height: 40px
-        margin-right: 30px
-        
-        a
-          width: 40px
-          height: 40px
-          display: inline-block
-          border: none
-
-        &.fb
-          background: url('/assets/fb-black.svg') no-repeat 0 0
-
-        &.twitter
-          background: url('/assets/twitter-black.svg') no-repeat 0 0
-
-        &.insta
-          background: url('/assets/insta-black.svg') no-repeat 0 0
+      &.follow, &.contact
+        li:before
+          content: ""
         
       &.contact
 
-        clear:none;
+        clear:none
         
-        ul
           li
-
             margin-bottom: 20px
 
             span:first-child
@@ -667,13 +693,51 @@ menu
               width: getSizeForNColumns(3)
               display: inline-block
 
+      p + h3
+        margin-top: 50px
 
-      p
-        margin-bottom: 30px
+      p, ul, dl
+        margin-bottom: 18px
+
+      p + ul
+        margin-top: -18px
+
+      li
+        padding-left: 15px
+        margin-bottom: 15px
+        position: relative
+
+        // tried `.short-list &` but didn't work maybe because of depth in the cascade
+
+        &:before
+          content:"•"
+          position: absolute
+          left: 0
+          color: $pink
+          font-size: 200%
+
+      .short-list li //see comment a few line before
+        margin-bottom: 2px
+
+      dl 
+
+        dt 
+          float: left
+          clear: left
+
+        dd
+          margin-bottom: 20px
+
+        & dd, &.col-1 dd
+          margin-left: $colSize
+
+        &.col-2 dd
+          margin-left: 2*$colSize
+
 
   ul.sponsors
     width: getSizeForNColumns(8)
-    margin: 0px auto 50px auto
+    margin: 80px auto 160px
 
     li
       float: left
