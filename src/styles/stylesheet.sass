@@ -86,13 +86,16 @@ h2
 h3
   color: $pink
   font-size: 22px
-  ine-height: 30px
+  line-height: 30px
   font-weight: 600
   text-transform: uppercase
-  margin-bottom: 30px
+  margin-bottom: 25px
 
   &.yellow
     color: $yellow
+
+h4, .infos strong
+  color: $pink
 
 .gradient
   background: rgba(255,84,155,1)
@@ -596,6 +599,7 @@ menu
 
 .infos
   background-color: #FFF
+  line-height: 24px
 
   h2
     padding-top: 30px
@@ -613,8 +617,11 @@ menu
       &:nth-child(2n+1), &.follow
         clear:left
 
+      &.follow, &.contact
+        li:before
+          content: ""
 
-      ul.social li
+      &.follow li
         float: left
         width: 40px 
         height: 40px
@@ -634,14 +641,13 @@ menu
 
         &.insta
           background: url('/assets/insta-black.svg') no-repeat 0 0
+
         
       &.contact
 
-        clear:none;
+        clear:none
         
-        ul
           li
-
             margin-bottom: 20px
 
             span:first-child
@@ -652,9 +658,47 @@ menu
               width: getSizeForNColumns(3)
               display: inline-block
 
+      p + h3
+        margin-top: 60px
 
-      p
+      p, ul, dl
         margin-bottom: 30px
+
+      p + ul
+        margin-top: -20px
+
+      li
+        padding-left: $gutter/2
+        margin-bottom: 15px
+        position: relative
+
+        // tried `.short-list &` but didn't work maybe because of depth in the cascade
+
+        &:before
+          content:"•"
+          position: absolute
+          left: 0
+          color: $pink
+          font-size: 200%
+
+      .short-list li //see comment a few line before
+        margin-bottom: 2px
+
+      dl 
+
+        dt 
+          float: left
+          clear: left
+
+        dd
+          margin-bottom: 20px
+
+        & dd, &.col-1 dd
+          margin-left: $colSize
+
+        &.col-2 dd
+          margin-left: 2*$colSize
+
 
   ul.sponsors
     width: getSizeForNColumns(8)
