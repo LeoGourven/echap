@@ -213,7 +213,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       html += `
         <li class="${artist.party}" data-id="${artist.id}">
-          <p class="pic" style="background-image: url(/assets/artists/mono-${artist.pic})"></p>
+          <div class="pic--wrapper">
+            <div class="pic" style="background-image: url(/assets/artists/mono-${artist.pic})"></div>
+          </div>
           <p class="artist-name">${artist.name}</p>
         </li>
       `
