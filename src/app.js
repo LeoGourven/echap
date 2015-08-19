@@ -7,6 +7,24 @@ import {findArtist, getOffsetRectTop} from "./utils"
 
 let artists = []
 
+const addRainbow = function(){
+
+  const colors = ["red", "green", 'pink']
+
+  dom('.rainbow')
+    .on('mouseenter', function(){
+
+      const key = Math.floor(Math.random() * colors.length)
+
+      dom(this).style('color', colors[key])
+    })
+    .on('mouseleave', function(){
+      dom(this).style('color', 'initial')
+    })
+    
+}
+
+
 const attachOpenModalEvents = function(){
 
   dom(".button-place-modal").on("click", function(e){
@@ -164,7 +182,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Add grid manager
   toggleGrid()
 
-  // 
+  // add rainbow effet
+  addRainbow()
 
   const sb = scrollBounds(document.body)
 
