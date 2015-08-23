@@ -72,6 +72,9 @@ a
   color: $black
   padding-bottom: 2px
 
+  &:hover
+    border-bottom-color: currentColor
+
 h2
   display: table
   margin: 90px auto 100px auto
@@ -174,8 +177,7 @@ menu
 
     &:hover
       cursor: pointer
-      color: red // TODO : update text hover color
-      border-bottom: 2px solid red // TODO : update border color
+      border-bottom: 2px solid currentColor
 
     &.nav--helper:hover, &.nav--anchors
       color: inherit
@@ -438,7 +440,9 @@ menu
           font-size: 16px
           padding-bottom: 3px
           border-bottom: 1px solid $black
-          letter-spacing: -0.2px
+
+          &:hover
+            border-bottom-color: currentColor
 
 
 
