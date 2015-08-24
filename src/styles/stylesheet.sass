@@ -72,6 +72,9 @@ a
   color: $black
   padding-bottom: 2px
 
+  &:hover
+    border-bottom-color: currentColor
+
 h2
   display: table
   margin: 90px auto 100px auto
@@ -174,8 +177,7 @@ menu
 
     &:hover
       cursor: pointer
-      color: red // TODO : update text hover color
-      border-bottom: 2px solid red // TODO : update border color
+      border-bottom: 2px solid currentColor
 
     &.nav--helper:hover, &.nav--anchors
       color: inherit
@@ -205,6 +207,8 @@ menu
   background: url('/assets/__background-60q.jpg') repeat
   background-size: cover
 
+  & > div
+    margin-bottom: 200px
 
   .intro
     height: 80vh
@@ -311,8 +315,8 @@ menu
     //     background-size: 100% 100%
 
 
-
   // Programmation
+
   .per-day
     width: getSizeForNColumns(10)
     margin: 0 auto
@@ -438,7 +442,9 @@ menu
           font-size: 16px
           padding-bottom: 3px
           border-bottom: 1px solid $black
-          letter-spacing: -0.2px
+
+          &:hover
+            border-bottom-color: currentColor
 
 
 
@@ -541,8 +547,6 @@ menu
 
 
 .artists 
-
-  padding-bottom: 250px
 
   ul
     margin: 0 auto
@@ -678,7 +682,6 @@ menu
     background-size: $colSize*9
     margin: 0 auto
     width: getSizeForNColumns(10)
-    margin-bottom: 220px
 
 
   ul
@@ -722,6 +725,7 @@ menu
 .infos
   background-color: #FFF
   line-height: 24px
+  margin-bottom: 0
 
   .content
     margin: 0 auto

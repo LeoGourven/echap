@@ -31,9 +31,10 @@ let artists = []
 
 const addRainbow = function(){
 
-  const colors = ["red", "green", 'pink']
+  const colors = ["#FF8A0F", "#00CCFF", '#FF434A', "#E95A95"]
+  const initial = "#2E0900"
 
-  dom('.rainbow')
+  dom('.🌈, .🌈🌈 li, .🌈🌈🌈 a')
     .on('mouseenter', function(){
 
       const key = Math.floor(Math.random() * colors.length)
@@ -41,7 +42,18 @@ const addRainbow = function(){
       dom(this).style('color', colors[key])
     })
     .on('mouseleave', function(){
-      dom(this).style('color', 'initial')
+      dom(this).style('color', initial)
+    })
+
+  dom('.🌈--button')
+    .on('mouseenter', function(){
+
+      const key = Math.floor(Math.random() * colors.length)
+
+      dom(this).style('background-color', colors[key])
+    })
+    .on('mouseleave', function(){
+      dom(this).style('background-color', initial)
     })
     
 }
