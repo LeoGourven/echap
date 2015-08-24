@@ -3,7 +3,29 @@ import request from "superagent"
 import dom from "domquery"
 import scrollTo from "animated-scrollto"
 import scrollBounds from "scroll-bounds"
+import scale from "d3-scale"
 import {findArtist, getOffsetRectTop} from "./utils"
+
+
+;(function() {
+    var throttle = function(type, name, obj) {
+        var obj = obj || window;
+        var running = false;
+        var func = function() {
+            if (running) { return; }
+            running = true;
+            requestAnimationFrame(function() {
+                obj.dispatchEvent(new CustomEvent(name));
+                running = false;
+            });
+        };
+        obj.addEventListener(type, func);
+    };
+
+    /* init - you can init any event */
+    throttle ("scroll", "optimizedScroll");
+})();
+
 
 let artists = []
 
@@ -168,26 +190,34 @@ const toggleGrid = function(){
   })
 }
 
+
+
+
 document.addEventListener("DOMContentLoaded", function(event) { 
     
   // Add event to close modales
   listenCloseModale(dom(".modal-container"))
-
   // Add open modal events
   attachOpenModalEvents()
-
   // Add menu events
   attachMenuEvents()
-
   // Add grid manager
   toggleGrid()
-
   // add rainbow effet
   addRainbow()
 
+  // Parallax struff
+  const illustration = dom("#illustration")
+  const illustrationPos = getOffsetRectTop(illustration[0])
+  // DOC : domain(startEffectPosition, endEffectPosition).range(minBackgroundposition, maxBackgroundposition)
+  const illuScale = scale.linear().domain([illustrationPos-600, illustrationPos+400]).range([55, 95]).clamp(true)
+
+  window.addEventListener("optimizedScroll", function(e) {
+      const pos = document.body.scrollTop
+      illustration.style('background-position-y', `${illuScale(pos)}%`)
+  });
+
   const sb = scrollBounds(document.body)
-
-
   sb.on('top', function(){
     dom('menu').removeClass('collapsed')
   })

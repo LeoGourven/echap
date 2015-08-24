@@ -954,6 +954,9 @@ menu
   @media screen and (max-height: 800px)
     padding-top: 0
 
+  @media screen and (min-width: $bigScreenMedia)
+    padding-top: 0
+
 
   &.hide
     opacity: 0
@@ -967,6 +970,7 @@ menu
     width: getSizeForNColumns(12)
     margin: 0 auto
     background-color: $black
+    
 
   .col
     width: 50%
