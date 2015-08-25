@@ -222,11 +222,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const illustration = dom("#illustration")
   const illustrationPos = getOffsetRectTop(illustration[0])
   // DOC : domain(startEffectPosition, endEffectPosition).range(minBackgroundposition, maxBackgroundposition)
-  const illuScale = scale.linear().domain([illustrationPos-600, illustrationPos+400]).range([55, 95]).clamp(true)
+  const illuScale = scale.linear().domain([illustrationPos-600, illustrationPos+400]).range([-200, 0]).clamp(true)
 
   window.addEventListener("optimizedScroll", function(e) {
       const pos = document.body.scrollTop
-      illustration.style('background-position-y', `${illuScale(pos)}%`)
+      illustration
+        .style('transform', `translate(0, ${illuScale(pos)}px)`)
+        .style('-webkit-transform', `translate(0, ${illuScale(pos)}px)`)
   });
 
   const sb = scrollBounds(document.body)
