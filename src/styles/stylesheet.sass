@@ -383,18 +383,24 @@ menu
 
       .party-name
         color: #FFF
-        padding: 10px 30px
+        padding: 10px 20px
         text-align: center
         display: table
         margin: 0 auto
         text-transform: uppercase
-        transform: rotate(-5deg)
-        -webkit-transform: rotate(-5deg)
-        -moz-transform: rotate(-5deg)
+        transform: skewX(-5deg) rotate(-5deg)
+        -webkit-transform: skewX(-5deg) rotate(-5deg)
+        -moz-transform: skewX(-5deg) rotate(-5deg)
         font-weight: bold
         font-size: 22px
         font-style: italic
         margin-bottom: 25px
+
+        span
+          display: block
+          transform: skewX(5deg)
+          -webkit-transform: skewX(5deg)
+          -moz-transform: skewX(5deg)
 
       .party-hours
         text-align: center
@@ -415,18 +421,15 @@ menu
             font-weight: 200
 
       .echap-live
-        width: 190px
         background-color: $echapLiveColor
         margin-top: 49px
 
       .echap-playground
         background-color: $echapPlaygroundColor
         margin-top: 29px
-        padding: 10px 15px
 
 
       .echap-night
-        padding: 10px 15px
         background-color: $echapNightColor
         margin-top: 30px
 
