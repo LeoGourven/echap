@@ -622,7 +622,7 @@ menu
 
     &:nth-child(1), &:nth-child(8), &:nth-child(12)
 
-      &:after, &:before
+      &:after
         z-index: 20
         position: absolute
         font-size: 60px
@@ -630,31 +630,24 @@ menu
         top: 0
         right: -40px
 
-      &:before
-        margin-left: 4px
-        margin-top: 4px
-
       &:after
           color: $black
         
 
       &:nth-child(1)
-        &:after, &:before
-          content: "LIVE"
-        &:before  
-          color: $echapLiveColor
+        &:after
+          content: "LIVE"  
+          text-shadow: 4px 4px 0 $echapLiveColor
 
       &:nth-child(8)
-        &:after, &:before
-          content: "PLAYGROUND"
-        &:before  
-          color: $echapPlaygroundColor
+        &:after
+          content: "PLAYGROUND"  
+          text-shadow: 4px 4px 0 $echapPlaygroundColor
 
       &:nth-child(12)
-        &:after, &:before
-          content: "NIGHT"
-        &:before  
-          color: $echapNightColor
+        &:after
+          content: "NIGHT"  
+          text-shadow: 4px 4px 0 $echapNightColor
 
 
 
