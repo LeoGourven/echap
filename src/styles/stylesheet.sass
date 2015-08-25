@@ -13,8 +13,19 @@ $backgroundColor :#f4db96
 
 //////// Grid /////////////
 
+// Mixing in fluid breakpoint; set in viewport unit (between 960px and 1200px)
 @function getSizeForNColumns($n)
   @return $colSize * $n - $gutter
+
+
+// Mixin for fixed breakpoint; set in percentage
+// Use this mixin to get size without gutter
+@function getPercentForNColumns($w,$n)
+  @return 100%/$w * $n - 100%/$w * 0.26
+
+// Use this mixin to get size with gutter
+@function getPercentForNUnit($w,$n)
+  @return 100%/$w * $n
 
 // Grid display for debug (edited by dnsfng)
 
@@ -29,10 +40,11 @@ $gutter: $colSize*0.255
 $smallScreenMedia: 1060px
 $bigScreenMedia: 1300px
 
+$laptopWidth: 1280px
+$laptopWidthGrid: 1200px
+
 .grid
   width: $gridWidth
-  // max-width: $laptopWidth // could be set as media queries also
-  // min-width: $tabletWidth // could be set as media queries also
   height: 100%
   position: fixed
   top: 0
@@ -41,6 +53,10 @@ $bigScreenMedia: 1300px
   z-index: 999
   pointer-events: none
   border-right: 1px solid #0f0
+
+  @media screen and (min-width: $laptopWidth)
+    width: $laptopWidthGrid
+    margin-left: -1*($laptopWidthGrid/2)
 
   & > div
     float: left
@@ -127,6 +143,9 @@ body
   -webkit-font-smoothing: antialiased
   letter-spacing: -0.3px // wut ?
 
+  @media screen and (max-width: 960px)
+    max-width: 960px
+
 menu
   position: fixed
   z-index: 99
@@ -138,7 +157,6 @@ menu
   font-weight: bold
   font-size: 20px
   text-transform: uppercase
-
 
   &.collapsed
 
@@ -207,8 +225,14 @@ menu
   background: $backgroundColor url('/assets/__background-60q.jpg') repeat-y
   background-size: contain
 
-  & > div
+  & > div,
     margin-bottom: 200px
+
+  & > div, .infos .wrapper
+    @media screen and (min-width: $laptopWidth)
+      max-width: $laptopWidthGrid
+      margin-left: auto
+      margin-right: auto
 
   .intro
     height: 80vh
@@ -221,7 +245,6 @@ menu
     margin-bottom: 6vw
     background: url('/assets/__logo-@1x.png') no-repeat 50% 50%
     background-size: 100% auto
-
 
     @media screen and (min-width: $bigScreenMedia)
       background: url('/assets/__logo-@2x.png') no-repeat 50% 50%
@@ -320,6 +343,9 @@ menu
   .per-day
     width: getSizeForNColumns(10)
     margin: 0 auto
+
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNColumns(12,10)
 
     .day
       float: left
@@ -452,7 +478,6 @@ menu
   width: $gridWidth
   margin: 0 auto
   position: relative
-  margin-bottom: 200px
 
   h2
     position: absolute
@@ -460,6 +485,11 @@ menu
     top: 60px
     font-size: 32px
     padding: 25px
+
+    @media screen and (min-width: $laptopWidth)
+      left: getPercentForNColumns(12,4)
+      -webkit-transform: translate3d(-50%,0,0)
+      transform: translate3d(-50%,0,0)
   
   .pic
     
@@ -471,6 +501,9 @@ menu
     left: -62px
     background: url("/assets/__visual-@1x.png") no-repeat 0 85%
     background-size: 100% auto
+
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNColumns(12,6)
 
 
     span
@@ -492,22 +525,33 @@ menu
     padding-top: 100px
     padding-bottom: 100px 
 
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNUnit(12,8)
+      margin-left: getPercentForNUnit(12,4)
+
     .title
       color: $echapLiveColor
       font-weight: 600
       font-size: 22px
       line-height: 32px
       text-align: center
-      width: getSizeForNColumns(5)
-      margin-left: auto
-      margin-right: auto
-      margin-bottom: 30px
+      width: getSizeForNColumns(6)
+      margin: 0 auto 30px
+
+
+      @media screen and (min-width: $laptopWidth)
+        width: getPercentForNColumns(12,5)
 
 
     .author
+      width: getSizeForNColumns(6)
       text-align: center
       position: relative
-      margin-bottom: 107px
+      margin: 0 auto 107px
+
+      @media screen and (min-width: $laptopWidth)
+        width: getPercentForNColumns(8,6)
+
 
       &:after
         content: " "
@@ -529,6 +573,10 @@ menu
       font-weight: 600
       font-size: 18px
       line-height: 32px
+
+      @media screen and (min-width: $laptopWidth)
+        width: getPercentForNColumns(8,6)
+
 
       p
         margin-bottom: 25px
@@ -552,6 +600,9 @@ menu
     margin: 0 auto
     width: $colSize*10
 
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNUnit(12,10)
+
   li
     float: left
     padding: 0 $gutter/2
@@ -560,6 +611,10 @@ menu
     cursor: pointer
     width: $colSize*2
     height: 14vw
+
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNUnit(10,2)
+
 
 
     &:nth-child(1), &:nth-child(8), &:nth-child(12)
@@ -611,21 +666,29 @@ menu
 
     .pic--wrapper
       position:relative
-      width: $colSize*2 - $gutter
-      height: $colSize*2 - $gutter
+      width: getSizeForNColumns(2)
+      height: getSizeForNColumns(2)
       border-radius: 50%
       margin-bottom: 15px
+
+      @media screen and (min-width: $laptopWidth)
+        width: 174px
+        height: 174px
 
       &:before
         content: ""
         position: absolute
         z-index: 10
-        width: $colSize*2 - $gutter
-        height: $colSize*2 - $gutter
+        width: getSizeForNColumns(2)
+        height: getSizeForNColumns(2)
         border-radius: 50%
         top: 0
         left: 0
         transition: border-color 400ms ease-in-out
+
+        @media screen and (min-width: $laptopWidth)
+          width: 174px
+          height: 174px
 
 
     .pic
@@ -683,16 +746,27 @@ menu
     margin: 0 auto
     width: getSizeForNColumns(10)
 
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNUnit(12,10)
+      background-size: getPercentForNUnit(10,9)
 
   ul
     padding-top: 584px
     margin-left: getSizeForNColumns(1)
+
+    @media screen and (min-width: $laptopWidth)
+      margin-left: getPercentForNUnit(10,1)
+      margin-right: getPercentForNUnit(10,1)
 
 
     li
       display: inline-block
       width: $colSize*4
       padding-left: $gutter
+
+      @media screen and (min-width: $laptopWidth)
+        width: getPercentForNUnit(10,4.9)
+        padding-left : 13px
 
       p.name
         font-weight: 600
@@ -725,17 +799,28 @@ menu
 .infos
   background-color: #FFF
   line-height: 24px
-  margin-bottom: 0
+
+  .smoke-background > &
+    width: 100%
+    max-width: inherit !important
+    margin-bottom: 0
 
   .content
     margin: 0 auto
     width: $colSize*10
+
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNUnit(12,10)
 
     & > div
       float: left
       width: $colSize*5
       margin-bottom: 60px
       padding: 0 $colSize/2 0 $gutter/2
+
+      @media screen and (min-width: $laptopWidth)
+        width: getPercentForNUnit(10,5)
+        padding: 0 getPercentForNColumns(5,0.5) 0 13px
 
       &:nth-child(2n+1), &.follow
         clear:left
@@ -796,6 +881,8 @@ menu
 
         & dd, &.col-1 dd
           margin-left: $colSize
+          @media screen and (min-width: $laptopWidth)
+            margin-left: getPercentForNUnit(5,1)
 
         &.col-2 dd
           margin-left: 2*$colSize
@@ -805,9 +892,15 @@ menu
     width: getSizeForNColumns(8)
     margin: 80px auto 160px
 
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNColumns(12,8)
+
     li
       float: left
       margin: 0 $gutter $gutter 0
+
+      @media screen and (min-width: $laptopWidth)
+        margin: 0 26px 26px 0
 
       &.sponsors--info
         float: none
@@ -825,6 +918,10 @@ menu
       img
         width: $colSize - $gutter
         height: $colSize - $gutter
+
+        @media screen and (min-width: $laptopWidth)
+          width: 74px;
+          height: 74px;
 
       
   ul.credits
@@ -853,21 +950,34 @@ menu
 .association
   background-color: $echapNightColor
   color: #FFF
-  padding-top: 100px
+  padding: 100px 0 80px
 
   .container
     margin: 0 auto
     width: getSizeForNColumns(12)
-    
+
+    @media screen and (min-width: $laptopWidth)
+      max-width: $laptopWidthGrid
+      margin-left: auto
+      margin-right: auto
 
   .col
     width: getSizeForNColumns(6)
     display: inline-block
+    vertical-align: top
+
+    @media screen and (min-width: $laptopWidth)
+      width: getPercentForNColumns(12,6)
+      margin:0 12px
 
     &:first-child
       padding-left: getSizeForNColumns(1) + $gutter
       padding-right: $colSize
       position: relative
+
+      @media screen and (min-width: $laptopWidth)
+        padding-left: getPercentForNUnit(12,1)
+        padding-right: getPercentForNUnit(12,1)
 
       &:after
         content: ""
@@ -887,12 +997,17 @@ menu
     
     padding-left: $gutter
 
+    @media screen and (min-width: $laptopWidth)
+      padding-left: 13px
+
     ul
       padding-left: getSizeForNColumns(1)
       margin-bottom: 30px
       color: #000
       position: relative
 
+      @media screen and (min-width: $laptopWidth)
+        padding-left: getPercentForNUnit(12,1)
 
       &:nth-child(1):before
         content: "2015"
@@ -924,6 +1039,8 @@ menu
         padding-left: 20px
         margin-bottom: 10px
 
+        @media screen and (min-width: $laptopWidth)
+          padding-left: 39px
 
       p.title
         color: #FFF
