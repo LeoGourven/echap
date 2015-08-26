@@ -742,6 +742,10 @@ menu
     margin: 0 auto
     width: getSizeForNColumns(10)
 
+    @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 640px), screen and (min-resolution: 192dpi) and (min-width: 640px)
+      background-image: url('/assets/__map-@2x.png')
+
+
     @media screen and (min-width: $laptopWidth)
       width: getPercentForNUnit(12,10)
       background-size: getPercentForNUnit(10,9)
