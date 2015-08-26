@@ -225,8 +225,11 @@ menu
   background: $backgroundColor url('/assets/__background-60q.jpg') repeat-y
   background-size: contain
 
-  & > div,
+  & > div
     margin-bottom: 200px
+
+    &.artists
+      margin-bottom : 50px
 
   & > div, .infos .wrapper
     @media screen and (min-width: $laptopWidth)
@@ -727,6 +730,8 @@ menu
 
 
 .places 
+
+  padding-top: 150px
   
   h2
     position: absolute
