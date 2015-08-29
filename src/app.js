@@ -2,7 +2,6 @@ import style from "./styles/stylesheet.sass"
 import request from "superagent"
 import dom from "domquery"
 import scrollTo from "animated-scrollto"
-import scrollBounds from "scroll-bounds"
 import scale from "d3-scale"
 import {findArtist, getOffsetRectTop} from "./utils"
 

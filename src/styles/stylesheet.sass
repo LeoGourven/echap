@@ -160,6 +160,10 @@ menu
   text-transform: uppercase
 
 
+  @media screen and (min-width: $mobileMedia)
+    display: none
+
+
   
 
   &.collapsed
@@ -1073,6 +1077,7 @@ menu
   z-index: 99
   background-color: rgba($backgroundColor, 0.5)
   padding-top: 100px
+  overflow: auto
 
   
   opacity: 1
