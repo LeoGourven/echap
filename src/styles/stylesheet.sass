@@ -229,8 +229,11 @@ menu
   background: $backgroundColor url('/assets/__background-60q.jpg') repeat-y
   background-size: contain
 
-  & > div,
+  & > div
     margin-bottom: 200px
+
+    &.artists
+      margin-bottom : 50px
 
   & > div, .infos .wrapper
     @media screen and (min-width: $laptopWidth)
@@ -736,6 +739,8 @@ menu
 
 
 .places 
+
+  padding-top: 150px
   
   h2
     position: absolute
@@ -750,6 +755,10 @@ menu
     background-size: $colSize*9
     margin: 0 auto
     width: getSizeForNColumns(10)
+
+    @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 640px), screen and (min-resolution: 192dpi) and (min-width: 640px)
+      background-image: url('/assets/__map-@2x.png')
+
 
     @media screen and (min-width: $laptopWidth)
       width: getPercentForNUnit(12,10)
