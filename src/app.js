@@ -90,6 +90,7 @@ const attachMenuEvents = function(){
 
 const toggleModal = function(el){
   dom(el).hasClass('hide') ? dom(el).removeClass('hide') : dom(el).addClass('hide')
+  resetModale()
 }
 
 const listenCloseModale = function(elements){
@@ -100,22 +101,36 @@ const listenCloseModale = function(elements){
       (function(el){
         dom(el).select('.close-modale').on('click', function(){
           toggleModal(el)
-        })  
+        })
+
+        dom(el).on('click', function(e){
+          if(e.target == el){
+            toggleModal(el)  
+          }
+        })
+
       })(el)
     })
 }
 
-const populateModal = function(id){
 
-  const artist = findArtist(artists, id)
+const resetModale = function(){
   const modal = dom("#artist-modal")
-
   // reset
   modal.select('.party').removeClass('live')
   modal.select('.party').removeClass('night')
   modal.select('.party').removeClass('playground')
   modal.select('.youtube iframe').attr("src", "#")
   modal.select('.soundcloud iframe').attr("src", "#")
+  modal.select('.mixcloud iframe').attr("src", "#")
+  
+}
+
+
+const populateModal = function(id){
+
+  const artist = findArtist(artists, id)
+  const modal = dom("#artist-modal")
 
   // populate
   modal.select('.artist-name').html(artist.name)
@@ -129,11 +144,16 @@ const populateModal = function(id){
   modal.select('.place span').html(artist.date)
 
 
-  if(artist.id_youtube){
+  if(artist.id_youtube||artist.dailymotion){
     modal.select('.youtube').show()
-    modal.select('.youtube iframe').attr("src", `https://www.youtube.com/embed/${artist.id_youtube}`)  
+    if(artist.dailymotion){
+      modal.select('.youtube iframe').attr("src", artist.dailymotion)  
+    }else{
+      modal.select('.youtube iframe').attr("src", `https://www.youtube.com/embed/${artist.id_youtube}`)    
+    }
   }else{
     modal.select('.youtube').hide()
+    
   }
 
   if(artist.id_soundcloud){
