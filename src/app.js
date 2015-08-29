@@ -72,12 +72,12 @@ const attachMenuEvents = function(){
 
   dom("menu li").on('click', function(){
     const anchor = dom(this).attr('data-class')
+
     if(anchor){
 
       const yPos = getOffsetRectTop(dom(`.${anchor}`)[0])
-
       scrollTo(
-        document.body, 
+        document.documentElement, 
         yPos, 
         600, 
         function() {} // calback
@@ -224,23 +224,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // DOC : domain(startEffectPosition, endEffectPosition).range(minBackgroundposition, maxBackgroundposition)
   const illuScale = scale.linear().domain([illustrationPos-600, illustrationPos+400]).range([-200, 0]).clamp(true)
 
+  const menuEL = dom('menu')
+
   window.addEventListener("optimizedScroll", function(e) {
-      const pos = document.body.scrollTop
+
+      const pos = document.documentElement.scrollTop
+
+      if(pos<50){
+        menuEL.removeClass('collapsed')
+      }else{
+        menuEL.addClass('collapsed')
+      }
+
       illustration
         .style('transform', `translate(0, ${illuScale(pos)}px)`)
         .style('-webkit-transform', `translate(0, ${illuScale(pos)}px)`)
+
   });
 
-  const sb = scrollBounds(document.body)
-  sb.on('top', function(){
-    dom('menu').removeClass('collapsed')
-  })
-
-  sb.on('break', function (boundary) {
-    if(boundary==="top"){
-      dom('menu').addClass('collapsed')
-    }
-  });
 
 
 

@@ -39,6 +39,7 @@ $gutter: $colSize*0.255
 
 $smallScreenMedia: 1060px
 $bigScreenMedia: 1300px
+$mobileMedia: 800px
 
 $laptopWidth: 1280px
 $laptopWidthGrid: 1200px
@@ -158,6 +159,9 @@ menu
   font-size: 20px
   text-transform: uppercase
 
+
+  
+
   &.collapsed
 
     &:hover
@@ -237,6 +241,11 @@ menu
   .intro
     height: 80vh
     padding-top: 165px
+
+    @media screen and (min-width: $mobileMedia)
+      height: 50vh
+      padding-top: 0
+
 
   .logo
     width: getSizeForNColumns(6)
