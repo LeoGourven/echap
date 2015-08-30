@@ -75,8 +75,11 @@ const attachMenuEvents = function(){
     if(anchor){
 
       const yPos = getOffsetRectTop(dom(`.${anchor}`)[0])
+      const isWebkit = 'WebkitAppearance' in document.documentElement.style
+
+
       scrollTo(
-        document.documentElement, 
+        (!isWebkit) ? document.documentElement : document.body, 
         yPos, 
         600, 
         function() {} // calback
@@ -247,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   window.addEventListener("optimizedScroll", function(e) {
 
-      const pos = document.documentElement.scrollTop
+      const pos = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
 
       if(pos<50){
         menuEL.removeClass('collapsed')

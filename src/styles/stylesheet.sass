@@ -1082,7 +1082,9 @@ menu
   background-color: $echapNightColor
   color: #FFF
   padding: 100px 0 80px
-  display: none
+
+  @media screen and (max-width: $mobileMedia)
+    display: none
 
   .container
     margin: 0 auto
