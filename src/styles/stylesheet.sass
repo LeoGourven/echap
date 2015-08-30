@@ -823,7 +823,12 @@ menu
 
       .artist-name
         -webkit-transform: translate3d(0, -$colSize - .5, 0)
-        pointer-events: none   
+        transform: translate3d(0, -$colSize - .5, 0)
+        pointer-events: none
+
+        @media screen and (min-width: $laptopWidth)
+          -webkit-transform: translate3d(0, -105px, 0)
+          transform: translate3d(0, -105px, 0)
 
 
 .places 
@@ -1343,6 +1348,7 @@ menu
       width: 100px
       height: 100px
       cursor: pointer
+      position: relative
 
     a
       display: block
@@ -1350,15 +1356,51 @@ menu
       height: 100px
       border: none
 
+      &:hover
+        background-color: rgba(255,255,255,0.1)
+
+    [class^="icon-"], .icon-close
+      &:before
+        width: 100px
+        margin: 0
+        position: absolute
+        color: white 
+        font-size: 64px
+        text-align: center
+        vertical-align: baseline
+        line-height: 100px
+
+
+      &:hover:before
+        -webkit-transform: 50% 50%
+        transform-origin: 50% 50%
+        -webkit-transform: scale(1.05, 1.05)
+        transform: scale(1.05, 1.05)
+
+    .icon-close, .icon-arrow-right
+      &:before
+        font-size: 40px
+
     .close
-      background: $echapNightColor url("/assets/close.svg") no-repeat 50% 50%
+      background-color: $echapNightColor
 
     .sc
-      background: #F75403 url("/assets/soundcloud.svg") no-repeat 50% 50%
+      background-color: #F75403
 
     .fb
-      background: #3B5998 url("/assets/fb.svg") no-repeat 50% 50%
-      
+      background-color: #3B5998
+
+    .tb
+      background-color: #36465d 
+
+    .tw
+      background-color: #55acee
+
+    .mx
+      background-color: #314359
+
+    .web
+      background-color: $pink      
 
   .description
     color: #FFF
