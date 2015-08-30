@@ -62,7 +62,7 @@
     "id_youtube" : "",
     "facebook" : "EtreAssisOuDanser",
     "soundcloud" : "etre-assis-ou-danser",
-    "tumblr" : "http://etreassisoudanser.tumblr.com/"
+    "tumblr" : "etreassisoudanser.tumblr.com/"
   },
   {
     "id" : "gigsta",
@@ -78,7 +78,9 @@
     "id_mixcloud" : "https://www.mixcloud.com/widget/iframe/?embed_type=widget_standard&amp;embed_uuid=c0e9aa2b-8a42-4333-88ec-1fbe49f1f47b&amp;feed=https%3A%2F%2Fwww.mixcloud.com%2FTrackNarre%2F&amp;hide_cover=1&amp;hide_tracklist=1&amp;replace=0",
     "id_youtube" : "",
     "facebook" : "",
-    "soundcloud" : ""
+    "soundcloud" : "",
+    "mixcloud" : "TrackNarre",
+    "website" : "www.canalb.fr/track-narre"
   },
   {
     "id" : "tristan-mdwk",
@@ -126,7 +128,8 @@
     "id_mixcloud" : "https://www.mixcloud.com/widget/iframe/?embed_type=widget_standard&amp;embed_uuid=57330ce7-8a3d-4df0-bfb0-872c25c624e2&amp;feed=https%3A%2F%2Fwww.mixcloud.com%2FEchapFestival%2Fsecond-choice-rinse-set-for-echap%2F&amp;hide_cover=1&amp;hide_tracklist=1&amp;replace=0",
     "id_youtube" : "",
     "facebook" : "",
-    "soundcloud" : ""
+    "soundcloud" : "",
+    "mixcloud" : "EchapFestival"
   },
   {
     "id" : "retard-show",
@@ -143,7 +146,7 @@
     "facebook" : "retardmagazine",
     "soundcloud" : "",
     "dailymotion" : "//www.dailymotion.com/embed/video/x2krt4h",
-    "website" : "http://retard-magazine.com/"
+    "website" : "www.retard-magazine.com/"
   },
   {
     "id" : "legowelt",
@@ -241,6 +244,6 @@
     "id_youtube" : "cZa3PSqCHQc",
     "facebook" : "reliefproject",
     "soundcloud" : "",
-    "website" : "http://relief-project.com/"
+    "website" : "www.relief-project.com/"
   }
 ]

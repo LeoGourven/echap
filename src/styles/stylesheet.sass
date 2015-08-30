@@ -94,16 +94,17 @@ a
 
 h2
   display: table
-  margin: 90px auto 100px auto
+  margin: 60px auto 40px auto
   font-weight: 600 
   text-transform: uppercase
-  font-size: 32px
+  font-size: 24px
   padding: 23px 28px
   text-align: center
   border: 5px solid currentColor
 
-  @media screen and (max-width: $mobileMedia)
-    font-size: 24px
+  @media screen and (min-width: $mobileMedia)
+    margin: 90px auto 100px auto
+    font-size: 32px
 
 h3
   color: $pink
@@ -313,21 +314,13 @@ menu
       font-weight: bold
       margin-right: 30px
 
-    @media screen and (max-width: $mobileMedia)
-      .dates
-        display: block
-        margin-right: 0
-        margin-bottom: 20px
-
-      .place
-        margin-right: 0
-        display: block
-
     .place
       margin-right: 10px
 
+
     .social
       display: inline-block
+      margin-top: 0px
       vertical-align: middle
 
       li
@@ -338,61 +331,48 @@ menu
           font-size: 40px
           line-height: 52px
 
-    // .social
-    //   width: 26px
-    //   height: 26px
-    //   margin-right: 20px
-    //   display: inline-block
-    //   vertical-align: middle
-    //   background-position: 0 0
-    //   background-size: 26px 26px
 
-    //   &:last-child
-    //     margin-right: 0
+    @media screen and (max-width: $mobileMedia)
+      .dates, .place
+        display: block
+        font-size: 24px
+        margin-right: 0
 
-    //   a
-    //     border: none
-    //     width: 26px
-    //     height: 26px
-    //     display: inline-block
-    //     background-color: red
+      .dates
+        margin-bottom: 15px
 
-    //   &.fb
-    //     background-image: url('/assets/fb-black.svg')
+      .social
+        margin-top: 10px
 
-    //   &.twitter
-    //     background-image: url('/assets/twitter-black.svg')
-
-    //   &.instagram
-    //     background-image: url('/assets/insta-black.svg')
-    //     width: 24px
-    //     height: 24px
-    //     background-size: 100% 100%
 
 
   // Programmation
 
   .per-day
-    width: getSizeForNColumns(10)
+    width: getSizeForNColumns(12)
     margin: 0 auto
+
+    @media screen and (min-width: 960px)
+      width: getSizeForNColumns(12)
 
     @media screen and (min-width: $laptopWidth)
       width: getPercentForNColumns(12,10)
-
-    @media screen and (max-width: $mobileMedia)
-      width: getSizeForNColumns(12)
 
     .day
       float: left
 
       &:first-child
         width: 33.34%
+        margin-bottom : 120px
+
+        @media screen and (min-width: $mobileMedia)
+          margin-bottom: auto        
 
       &:last-child
         width: 63.91%
         margin-left: 2.75%
 
-      @media screen and (max-width: $mobileMedia)
+      @media screen and (max-width: 960px)
 
         float: none
         
@@ -406,10 +386,19 @@ menu
         border-bottom: 2px solid $black
         padding: 22.5px 0
         text-align: center
-        font-size: 20px
+        font-size: 15px
 
-        @media screen and (max-width: $smallScreenMedia)
-          font-size: 16px
+        @media screen and (min-width: 400px)
+          font-size: 18px
+
+        @media screen and (min-width: 480px)
+          font-size: 20px
+
+        @media screen and (min-width: 960px)
+          font-size: 18px
+
+        @media screen and (min-width: $laptopWidth)
+          font-size: 20px
 
         em
           font-weight: 600
@@ -417,18 +406,22 @@ menu
 
       .party
         &.two-cols
-          float: left
-          width: 44%
+          width: auto
 
           &:first-child
-            margin-right: 8%
+            margin-bottom: 80px
 
-          @media screen and (max-width: $mobileMedia)
-            float: none
-            width: auto
+          @media screen and (min-width: 640px)
+            float: left
+            width: 50%
+
+
+          @media screen and (min-width: $mobileMedia)
+            width: 44%
 
             &:first-child
-              margin-right: 0
+              margin-right: 8%
+              margin-bottom: auto
 
 
       .party-name
@@ -457,14 +450,22 @@ menu
         margin-bottom: 25px
 
       .party-lineup
-        height: 307px
+
+        margin-bottom: 40px
+
+        @media screen and (min-width: 640px)
+          height: 307px
+          margin-bottom: auto
 
         li
-          font-size: 28px
+          font-size: 26px
           font-weight: 600
           text-align: center
           line-height: 45px
           cursor: pointer
+
+          @media screen and (min-width: 400px)
+            font-size: 28px
 
           span
             font-size: 20px
@@ -531,6 +532,10 @@ menu
   width: $gridWidth
   margin: 0 auto
   position: relative
+  display: none
+
+  @media screen and (min-width: $mobileMedia)
+    display: block  
 
   h2
     position: absolute
@@ -669,6 +674,11 @@ menu
 
 
 .artists 
+
+  display: none
+
+  @media screen and (min-width: $mobileMedia)
+    display: block  
 
   ul
     margin: 0 auto
@@ -813,70 +823,92 @@ menu
 
       .artist-name
         -webkit-transform: translate3d(0, -$colSize - .5, 0)
-        pointer-events: none   
+        transform: translate3d(0, -$colSize - .5, 0)
+        pointer-events: none
+
+        @media screen and (min-width: $laptopWidth)
+          -webkit-transform: translate3d(0, -105px, 0)
+          transform: translate3d(0, -105px, 0)
 
 
 .places 
 
-  padding-top: 150px
+
+  @media screen and (min-width: $mobileMedia)
+    padding-top: 150px 
   
   h2
-    position: absolute
-    top: -120px
-    left: getSizeForNColumns(1) + $gutter
+
+    @media screen and (min-width: $mobileMedia)
+      position: absolute
+      top: -120px
+      left: getSizeForNColumns(1) + $gutter
 
 
   & > div
     position: relative
-    height: 825px
-    background: #FFF url('/assets/__map.png') no-repeat 50% 100px
-    background-size: $colSize*9
+    width: getSizeForNColumns(12)
     margin: 0 auto
-    width: getSizeForNColumns(10)
 
-    @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 640px), screen and (min-resolution: 192dpi) and (min-width: 640px)
-      background-image: url('/assets/__map-@2x.png')
-
+    @media screen and (min-width: $mobileMedia)
+      width: getSizeForNColumns(10)
+      background: #FFF url('/assets/__map.png') no-repeat 50% 100px
+      background-size: $colSize*9
 
     @media screen and (min-width: $laptopWidth)
       width: getPercentForNUnit(12,10)
       background-size: getPercentForNUnit(10,9)
+      height: 825px
 
-    @media screen and (max-width: $mobileMedia)
-      width: getSizeForNColumns(12)
-      background-image: none
-      height: auto
-      padding-bottom: 40px
+    @media screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: $mobileMedia), screen and (min-resolution: 192dpi) and (min-width: $mobileMedia)
+      background-image: url('/assets/__map-@2x.png')
+
+
 
   ul
-    padding-top: 584px
-    margin-left: getSizeForNColumns(1)
+    margin: 30px auto
+    padding-top : 30px
+    padding-bottom : 10px
+    padding-left: getSizeForNColumns(1)
+    background-color: #FFF
+
+    @media screen and (min-width: $mobileMedia)
+      margin-top: auto
+      padding-top: 63%
+      background-color: transparent
 
     @media screen and (min-width: $laptopWidth)
-      margin-left: getPercentForNUnit(10,1)
-      margin-right: getPercentForNUnit(10,1)
-
-    @media screen and (max-width: $mobileMedia)
-      padding-top: 100px
+      padding-top : 584px
+      padding-left: getPercentForNUnit(10,1)
+      padding-right: getPercentForNUnit(10,1)
 
 
     li
-      display: inline-block
-      width: $colSize*4
-      padding-left: $gutter
+      display: block
+      width: auto
+      padding-left: 0
+      margin-bottom: 50px
+
+      a.button-place-modal
+        display: none
+
+        @media screen and (min-width: $mobileMedia) 
+          display: inline
+
+      @media screen and (min-width: 640px) 
+        display: inline-block
+        vertical-align: top
+        width: $colSize*5
+        padding-left: $gutter
+
+      @media screen and (min-width: $mobileMedia) 
+        width: $colSize*4
+        padding-left: $gutter
 
       @media screen and (min-width: $laptopWidth)
         width: getPercentForNUnit(10,4.9)
         padding-left : 13px
 
-      @media screen and (max-width: $mobileMedia)
-        display: block
-        width: auto
-        padding-left: 0
-        margin-bottom: 50px
-
-        a.button-place-modal
-          display: none
 
       p.name
         font-weight: 600
@@ -944,11 +976,15 @@ menu
         clear:left
 
       &.follow, &.contact
+        
+        @media screen and (max-width: $mobileMedia)
+          float: left
+
         li:before
           content: ""
         
       &.contact
-
+        
         clear:none
         
           li
@@ -991,36 +1027,46 @@ menu
       dl 
 
         dt 
-          float: left
-          clear: left
+          @media screen and (min-width: $mobileMedia)
+            float: left
+            clear: left
 
         dd
           margin-bottom: 20px
 
         & dd, &.col-1 dd
-          margin-left: $colSize
+
+          @media screen and (min-width: $mobileMedia)
+            margin-left: $colSize
+
           @media screen and (min-width: $laptopWidth)
-            margin-left: getPercentForNUnit(5,1)
+            margin-left: getPercentForNUnit(5,1.5)
 
         &.col-2 dd
-          margin-left: 2*$colSize
+
+          @media screen and (min-width: $mobileMedia)
+            margin-left: 2*$colSize
 
 
   ul.sponsors
-    width: getSizeForNColumns(8)
-    margin: 80px auto 160px
+    width: 80%
+    margin: 60px auto
+
+    @media screen and (min-width: $mobileMedia)
+      width: getSizeForNColumns(8)
+      margin: 80px auto 160px
 
     @media screen and (min-width: $laptopWidth)
       width: getPercentForNColumns(12,8)
 
-    @media screen and (max-width: $mobileMedia)
-      width: getSizeForNColumns(12)
-      margin: 40px auto 60px
 
     li
       float: left
-      margin: 0 $gutter $gutter 0
+      margin: 0 20px 20px 0
 
+      @media screen and (min-width: $mobileMedia)
+        margin: 0 $gutter $gutter 0
+    
       @media screen and (min-width: $laptopWidth)
         margin: 0 26px 26px 0
 
@@ -1033,22 +1079,26 @@ menu
         margin-bottom: 2*$gutter
 
       &:nth-child(8n+1)
-        margin-right: 0
+
+        @media screen and (min-width: $mobileMedia)
+          margin-right: 0
 
       a
         border-bottom: none
 
       img
-        width: $colSize - $gutter
-        height: $colSize - $gutter
+        width: 74px;
+        height: 74px;
+
+
+        @media screen and (min-width: $mobileMedia)
+          width: $colSize - $gutter
+          height: $colSize - $gutter
 
         @media screen and (min-width: $laptopWidth)
           width: 74px;
           height: 74px;
 
-        @media screen and (max-width: $mobileMedia)
-          width: 20vw
-          height: 20vw
 
       
   ul.credits
@@ -1085,6 +1135,9 @@ menu
 
   @media screen and (max-width: $mobileMedia)
     display: none
+
+  @media screen and (min-width: $mobileMedia)
+      display: block
 
   .container
     margin: 0 auto
@@ -1297,6 +1350,7 @@ menu
       width: 100px
       height: 100px
       cursor: pointer
+      position: relative
 
     a
       display: block
@@ -1304,15 +1358,51 @@ menu
       height: 100px
       border: none
 
+      &:hover
+        background-color: rgba(255,255,255,0.1)
+
+    [class^="icon-"], .icon-close
+      &:before
+        width: 100px
+        margin: 0
+        position: absolute
+        color: white 
+        font-size: 64px
+        text-align: center
+        vertical-align: baseline
+        line-height: 100px
+
+
+      &:hover:before
+        -webkit-transform: 50% 50%
+        transform-origin: 50% 50%
+        -webkit-transform: scale(1.05, 1.05)
+        transform: scale(1.05, 1.05)
+
+    .icon-close, .icon-arrow-right
+      &:before
+        font-size: 40px
+
     .close
-      background: $echapNightColor url("/assets/close.svg") no-repeat 50% 50%
+      background-color: $echapNightColor
 
     .sc
-      background: #F75403 url("/assets/soundcloud.svg") no-repeat 50% 50%
+      background-color: #F75403
 
     .fb
-      background: #3B5998 url("/assets/fb.svg") no-repeat 50% 50%
-      
+      background-color: #3B5998
+
+    .tb
+      background-color: #36465d 
+
+    .tw
+      background-color: #55acee
+
+    .mx
+      background-color: #314359
+
+    .web
+      background-color: $pink      
 
   .description
     color: #FFF
@@ -1348,7 +1438,7 @@ menu
   bottom: 0
   z-index: 99
   overflow: auto
-  background-color: rgba($backgroundColor, 0.5)
+  background-color: rgba($backgroundColor, 0.8)
 
 
   &.coatkaer
@@ -1422,7 +1512,7 @@ menu
     margin-top: 55px
     font-size: 18px
     line-height: 28px
-    font-weight: 200
+    font-weight: bold
 
     & > div
       padding-left: $gutter/2
