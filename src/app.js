@@ -185,6 +185,34 @@ const populateModal = function(id){
   }else{
     modal.select('.buttons .fb').style("display", "none")
   }
+
+  if(artist.twitter){
+    modal.select('.buttons .tw').style("display", "block")
+    modal.select('.buttons .tw a').attr("href", `https://twitter.com/${artist.twitter}`)
+  }else{
+    modal.select('.buttons .tw').style("display", "none")
+  }
+
+  if(artist.tumblr){
+    modal.select('.buttons .tb').style("display", "block")
+    modal.select('.buttons .tb a').attr("href", `https://${artist.tumblr}`)
+  }else{
+    modal.select('.buttons .tb').style("display", "none")
+  }
+
+  if(artist.mixcloud){
+    modal.select('.buttons .mx').style("display", "block")
+    modal.select('.buttons .mx a').attr("href", `http://mixcloud.com/${artist.mixcloud}`)
+  }else{
+    modal.select('.buttons .mx').style("display", "none")
+  }
+
+  if(artist.website){
+    modal.select('.buttons .web').style("display", "block")
+    modal.select('.buttons .web a').attr("href", `http://${artist.website}`)
+  }else{
+    modal.select('.buttons .web').style("display", "none")
+  }
   
 
   if(artist.label){
